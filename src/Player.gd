@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-signal player_hit
 
 const run_speed := 100
 const jump_speed := -300
@@ -8,7 +7,6 @@ const gravity := 700
 
 var velocity := Vector2()
 var jumping := false
-var health := 3
 
 
 func get_input() -> void:
@@ -38,20 +36,3 @@ func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	if jumping == true and is_on_floor():
 		jumping = false
-
-
-func reduce_health() -> void:
-	health -= 1
-	_check_game_over()
-	
-	
-func _check_game_over() -> void:
-	if health == 0:
-		$".".call_deferred("free")
-
-
-func _on_AttackHitbox_area_entered(area : Area2D) -> void:
-	if area.has_method("_physics_process"):
-		reduce_health()
-		emit_signal("player_hit")
-		$AnimationPlayer.play("Hit")
