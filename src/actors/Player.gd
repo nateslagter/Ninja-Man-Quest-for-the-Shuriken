@@ -20,7 +20,6 @@ func get_input() -> void:
 			jumping = true
 			velocity.y += jump_speed
 		
-
 func _physics_process(delta: float) -> void:
 	get_input()
 	velocity = move_and_slide(velocity,Vector2(0,-1))
