@@ -18,6 +18,6 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 75, 0 )
 current = true
-limit_top = -300
-limit_bottom = 600
+process_mode = 0
