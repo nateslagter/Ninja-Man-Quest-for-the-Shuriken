@@ -14,11 +14,15 @@ config/name="ninja_man"
 run/main_scene="res://src/levels/testLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://src/levels/Globals.gd"
+
 [display]
 
 window/size/width=1280
-window/size/test_width=960
-window/size/test_height=1280
+window/size/test_width=1280
+window/size/test_height=600
 window/stretch/mode="viewport"
 
 [input]
