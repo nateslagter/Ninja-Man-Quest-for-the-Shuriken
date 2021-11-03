@@ -15,7 +15,7 @@ func _physics_process(delta : float) -> void:
 	velocity.y += gravity * delta
 	if moving:
 		velocity = move_and_slide(velocity,Vector2(0,0))
-		velocity.x = clamp(velocity.x,-100,100)
+	position.x = clamp(position.x,initial_pos.x - 200,initial_pos.x + 200)
 
 
 func _on_MoveTimer_timeout() -> void:
