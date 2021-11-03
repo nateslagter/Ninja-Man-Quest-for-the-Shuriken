@@ -17,7 +17,7 @@ func _physics_process(delta : float) -> void:
 		velocity = move_and_slide(velocity,Vector2(0,0))
 
 
-func _on_MoveTimer_timeout():
+func _on_MoveTimer_timeout() -> void:
 	$JumpTimer.start()
 	switch_velocity *= -1
 	velocity = Vector2(switch_velocity,0)
@@ -26,5 +26,5 @@ func _on_MoveTimer_timeout():
 		
 
 
-func _on_JumpTimer_timeout():
+func _on_JumpTimer_timeout() -> void:
 	velocity.y += jump_speed
