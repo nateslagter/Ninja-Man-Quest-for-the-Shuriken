@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 
 const run_speed := 300
-const jump_speed := -400
+const jump_speed := -300
 const gravity := 700
 
 var velocity := Vector2()
@@ -13,17 +13,22 @@ func get_input() -> void:
 	velocity.x = 0
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= run_speed
-		$AnimationPlayer.play("Walk")
 		$Sprite.flip_h = true
+		if jumping == false:
+			$AnimationPlayer.play("Walk")
 	if Input.is_action_pressed("move_right"):
 		velocity.x += run_speed
-		$AnimationPlayer.play("Walk")
 		$Sprite.flip_h = false
-		$AnimationPlayer.play("Walk")
+		if jumping == false:
+			$AnimationPlayer.play("Walk")
 	if Input.is_action_just_pressed("jump"):
 		if jumping == false and is_on_floor():
 			jumping = true
+			$AnimationPlayer.play("Jump")
 			velocity.y += jump_speed
+	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right"):
+		if jumping == false:
+			$AnimationPlayer.play("Idle")
 		
 func _physics_process(delta: float) -> void:
 	get_input()
