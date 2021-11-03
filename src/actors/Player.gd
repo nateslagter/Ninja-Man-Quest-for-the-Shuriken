@@ -13,8 +13,13 @@ func get_input() -> void:
 	velocity.x = 0
 	if Input.is_action_pressed("move_left"):
 		velocity.x -= run_speed
+		$AnimationPlayer.play("Walk")
+		$Sprite.flip_h = true
 	if Input.is_action_pressed("move_right"):
 		velocity.x += run_speed
+		$AnimationPlayer.play("Walk")
+		$Sprite.flip_h = false
+		$AnimationPlayer.play("Walk")
 	if Input.is_action_just_pressed("jump"):
 		if jumping == false and is_on_floor():
 			jumping = true
