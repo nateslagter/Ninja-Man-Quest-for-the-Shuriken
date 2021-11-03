@@ -27,3 +27,9 @@ func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	if jumping == true and is_on_floor():
 		jumping = false
+
+
+func _on_Area2D_body_entered(body):
+	if body is Boss:
+		Globals.health -= 1
+		print(Globals.health)
