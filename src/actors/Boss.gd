@@ -1,16 +1,16 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var initial_pos := Vector2(position.x,position.y)
 
+var velocity := Vector2(200,0)
+var switch_velocity = 200
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _physics_process(delta : float) -> void:
+	if position.x > initial_pos.x + 200:
+		velocity = Vector2(-switch_velocity,0)
+		scale.x *= -1
+	elif position.x < initial_pos.x - 200:
+		velocity = Vector2(switch_velocity,0)
+		scale.x *= -1
+	var _ignored = move_and_slide(velocity,Vector2(0,-1))
