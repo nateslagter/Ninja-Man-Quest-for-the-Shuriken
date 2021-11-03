@@ -9,7 +9,6 @@ const gravity := 700
 var velocity := Vector2()
 var jumping := false
 
-
 func get_input() -> void:
 	velocity.x = 0
 	if Input.is_action_pressed("move_left"):
@@ -32,4 +31,6 @@ func _physics_process(delta: float) -> void:
 func _on_Area2D_body_entered(body):
 	if body is Boss:
 		Globals.health -= 1
-		print(Globals.health)
+		if Globals.health == 0:
+			queue_free()
+			
