@@ -8,7 +8,7 @@ const gravity := 700
 
 var velocity := Vector2(100,0)
 var switch_velocity = 100
-var health := 3
+var health := 1
 var attacked := false
 
 
