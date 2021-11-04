@@ -11,26 +11,28 @@ var jumping := false
 var attacking := false
 
 func get_input() -> void:
-	if !attacking:
-		velocity.x = 0
-		if Input.is_action_pressed("move_left"):
-			velocity.x -= run_speed
-			$Sprite.scale.x = -1
-			if jumping == false:
-				$AnimationPlayer.play("Walk")
-		if Input.is_action_pressed("move_right"):
-			velocity.x += run_speed
-			$Sprite.scale.x = 1
-			if jumping == false:
-				$AnimationPlayer.play("Walk")
-		if Input.is_action_just_pressed("jump"):
-			if jumping == false and is_on_floor():
-				jumping = true
-				$AnimationPlayer.play("Jump")
-				velocity.y += jump_speed
-		if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right"):
-			if jumping == false:
-				$AnimationPlayer.play("Idle")
+	velocity.x = 0
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= run_speed
+		$Sprite.scale.x = -1
+		if jumping == false and attacking == false:
+			$AnimationPlayer.play("Walk")
+	if Input.is_action_pressed("move_right"):
+		velocity.x += run_speed
+		$Sprite.scale.x = 1
+		if jumping == false and attacking == false:
+			$AnimationPlayer.play("Walk")
+	if Input.is_action_just_pressed("jump"):
+		if jumping == false and is_on_floor():
+			jumping = true
+			$AnimationPlayer.play("Jump")
+			velocity.y += jump_speed
+	if Input.is_action_just_pressed("attack"):
+		attacking = true
+		$AnimationPlayer.play("Attack")
+	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right"):
+		if jumping == false and attacking == false:
+			$AnimationPlayer.play("Idle")
 		
 		
 func _physics_process(delta: float) -> void:
