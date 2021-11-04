@@ -73,9 +73,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
-	if body is Boss or body.name =="AttackHitbox":
+	if body is Boss or body.name =="AttackHitbox" or body.name == "EnemyHitbox":
 		Globals.health -= 1
-		print("lost health")
 		if Globals.health == 0:
 			queue_free()
 			
