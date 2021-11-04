@@ -32,12 +32,14 @@ func get_input() -> void:
 			if jumping == false:
 				$AnimationPlayer.play("Idle")
 		
+		
 func _physics_process(delta: float) -> void:
 	get_input()
 	velocity = move_and_slide(velocity,Vector2(0,-1))
 	velocity.y += gravity * delta
 	if jumping == true and is_on_floor():
 		jumping = false
+		$AnimationPlayer.play("Idle")
 
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
