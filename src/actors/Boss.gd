@@ -8,7 +8,7 @@ onready var initial_pos := Vector2(position.x,position.y)
 
 var velocity := Vector2(150,0)
 var switch_velocity = 150
-var health := 20
+var health := 10
 var movable := true
 
 
@@ -38,7 +38,7 @@ func _on_Hitbox_area_entered(area : Area2D) -> void:
 		_attack()
 	if health == 0:
 		queue_free()
-		if get_tree().change_scene("res://src/levels/gameOverWin.tscn.tscn") != OK:
+		if get_tree().change_scene("res://src/levels/gameOverWin.tscn") != OK:
 			print ("An unexpected error occured while trying to switch to gameOverWin scene")
 
 
