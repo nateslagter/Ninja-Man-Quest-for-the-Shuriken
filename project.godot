@@ -38,8 +38,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ninja_man"
-run/main_scene="res://src/levels/testLevel.tscn"
+config/name="NM:QFTS (Iteration 1)"
+run/main_scene="res://src/levels/mainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
