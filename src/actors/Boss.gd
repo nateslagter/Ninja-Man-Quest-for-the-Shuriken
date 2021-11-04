@@ -2,7 +2,6 @@ class_name Boss
 extends KinematicBody2D
 
 
-
 const gravity := 700
 const jump_speed := -400
 
@@ -32,7 +31,7 @@ func _physics_process(delta : float) -> void:
 			movable = false
 			$WaitTimer.start()
 		var _ignored = move_and_slide(velocity,Vector2(0,0))
-	
+
 
 func _on_Hitbox_area_entered(area : Area2D) -> void:
 	if area.name == "SwordHitbox":
@@ -40,6 +39,8 @@ func _on_Hitbox_area_entered(area : Area2D) -> void:
 		_attack()
 	if health == 0:
 		queue_free()
+		if get_tree().change_scene("res://src/levels/gameOverWin.tscn.tscn") != OK:
+			print ("An unexpected error occured while trying to switch to gameOverWin scene")
 
 
 func _on_WaitTimer_timeout():
