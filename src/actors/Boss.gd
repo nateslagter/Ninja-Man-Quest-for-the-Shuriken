@@ -12,7 +12,7 @@ var health := 10
 var movable := true
 
 
-func _physics_process(_delta : float) -> void:
+func _physics_process(delta : float) -> void:
 	if movable:
 		$AnimationPlayer.play("Walk")
 		if position.x > initial_pos.x + 200:
@@ -30,6 +30,7 @@ func _physics_process(_delta : float) -> void:
 			movable = false
 			$WaitTimer.start()
 		var _ignored = move_and_slide(velocity,Vector2(0,0))
+		velocity.y += gravity * delta
 
 
 func _on_Hitbox_area_entered(area : Area2D) -> void:
