@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/ninjaSprites/player.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Player.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "Attack"
 length = 0.25
 tracks/0/type = "value"
@@ -31,7 +31,7 @@ tracks/1/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Idle"
 loop = true
 tracks/0/type = "value"
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Jump"
 length = 0.45
 tracks/0/type = "value"
@@ -80,13 +80,13 @@ tracks/0/keys = {
 "values": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 7.34744, 20.6768 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 11.7059, 20.6768 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 7.83004, 19.8629 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 7.86566, 21.4016 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -94,37 +94,39 @@ script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Attack = SubResource( 6 )
-anims/Idle = SubResource( 3 )
-anims/Jump = SubResource( 5 )
+anims/Attack = SubResource( 1 )
+anims/Idle = SubResource( 2 )
+anims/Jump = SubResource( 3 )
 anims/Walk = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 6
+frame = 7
 
-[node name="AutoAttack" type="Area2D" parent="Sprite"]
+[node name="AutoAttackRange" type="Area2D" parent="Sprite"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/AutoAttack"]
-position = Vector2( 15.9138, 19.9854 )
-shape = SubResource( 7 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/AutoAttackRange"]
+position = Vector2( 20.4336, 20.3007 )
+shape = SubResource( 5 )
 
 [node name="SwordHitbox" type="Area2D" parent="Sprite"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/SwordHitbox"]
 polygon = PoolVector2Array( 3.17066, 28.0823, 11.8569, 29.53, 19.875, 29.9754, 28.6726, 25.6323, 32.6817, 17.5029, 33.1271, 4.69619, 27.1136, -8.44457, 25.109, -7.55367, 17.2023, 1.80077, 22.2136, 5.36436, 23.9954, 17.0574, 15.1978, 25.0755 )
+disabled = true
 
 [node name="Area2D" type="Area2D" parent="Sprite"]
 position = Vector2( 0, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 position = Vector2( -0.117207, 12.6955 )
-shape = SubResource( 2 )
+shape = SubResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="SpriteCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.33371, 20.5704 )
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 75, 0 )
@@ -132,5 +134,5 @@ current = true
 process_mode = 0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="body_entered" from="Sprite/AutoAttack" to="." method="_on_AutoAttack_body_entered"]
+[connection signal="body_entered" from="Sprite/AutoAttackRange" to="." method="_on_AutoAttack_body_entered"]
 [connection signal="body_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]

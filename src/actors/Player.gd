@@ -2,7 +2,7 @@ class_name Player
 extends KinematicBody2D
 
 
-const run_speed := 300
+const run_speed := 200
 const jump_speed := -300
 const gravity := 700
 
@@ -15,12 +15,12 @@ func get_input() -> void:
 		velocity.x = 0
 		if Input.is_action_pressed("move_left"):
 			velocity.x -= run_speed
-			$Sprite.flip_h = true
+			$Sprite.scale.x = -1
 			if jumping == false:
 				$AnimationPlayer.play("Walk")
 		if Input.is_action_pressed("move_right"):
 			velocity.x += run_speed
-			$Sprite.flip_h = false
+			$Sprite.scale.x = 1
 			if jumping == false:
 				$AnimationPlayer.play("Walk")
 		if Input.is_action_just_pressed("jump"):
