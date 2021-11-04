@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/bossSprites/boss.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Boss.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=7]
 resource_name = "Attack"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -86,7 +86,7 @@ frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Attack = SubResource( 1 )
+anims/Attack = SubResource( 7 )
 anims/Idle = SubResource( 2 )
 anims/Walk = SubResource( 3 )
 
