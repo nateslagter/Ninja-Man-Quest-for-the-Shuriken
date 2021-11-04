@@ -31,7 +31,7 @@ tracks/1/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Dodge"
 length = 0.2
 tracks/0/type = "value"
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "values": [ 22 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "Fall"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -62,8 +62,7 @@ tracks/0/keys = {
 "values": [ 21 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -78,8 +77,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Jump"
+[sub_resource type="Animation" id=5]
 length = 0.45
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -94,8 +92,7 @@ tracks/0/keys = {
 "values": [ 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Walk"
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -111,7 +108,7 @@ tracks/0/keys = {
 "values": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "Damaged"
 length = 0.3
 tracks/0/type = "value"
@@ -127,10 +124,10 @@ tracks/0/keys = {
 "values": [ false, true, false, true ]
 }
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 7.83004, 19.8629 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7.86566, 21.4016 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -140,14 +137,14 @@ script = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 anims/Attack = SubResource( 1 )
-anims/Dodge = SubResource( 7 )
-anims/Fall = SubResource( 8 )
-anims/Idle = SubResource( 2 )
-anims/Jump = SubResource( 3 )
-anims/Walk = SubResource( 4 )
+anims/Dodge = SubResource( 2 )
+anims/Fall = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/Walk = SubResource( 6 )
 
 [node name="DamageAnimation" type="AnimationPlayer" parent="."]
-anims/Damaged = SubResource( 9 )
+anims/Damaged = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -166,11 +163,11 @@ position = Vector2( 0, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 position = Vector2( -0.117207, 12.6955 )
-shape = SubResource( 10 )
+shape = SubResource( 8 )
 
 [node name="SpriteCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.33371, 20.5704 )
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
