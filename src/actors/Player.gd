@@ -11,9 +11,9 @@ var jumping := false
 var attacking := false
 var previously_dodged := false
 var ableToMove := true
-
 var dash_frames := 0
 var dashMultiplier := 2
+var damageable = true
 
 
 func get_input() -> void:
@@ -54,7 +54,6 @@ func get_input() -> void:
 			dash_frames = 10
 			velocity.x = velocity.x * dashMultiplier
 			$DodgeCooldownTimer.start()
-
 	if dash_frames > 0:
 		dash_frames -= 1
 		if $Sprite.scale.x == 1:
@@ -74,7 +73,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
 	if body is Boss or body.name =="AttackHitbox" or body.name == "EnemyHitbox":
-		Globals.health -= 1
+		if damageable:
+			Globals.health -= 1
+			$DamageAnimation.play("Damaged")
+			damageable = false
+			$DamageCooldown.start()
 		if Globals.health == 0:
 			queue_free()
 			
@@ -86,6 +89,10 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 		ableToMove = true
 
 
-func _on_DodgeCooldownTimer_timeout():
+func _on_DodgeCooldownTimer_timeout() -> void:
 	print("Ready to dodge!")
 	previously_dodged = false
+
+
+func _on_DamageCooldown_timeout() -> void:
+	damageable = true
