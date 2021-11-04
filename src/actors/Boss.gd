@@ -38,7 +38,6 @@ func _on_Hitbox_area_entered(area : Area2D) -> void:
 	if area.name == "SwordHitbox":
 		health -= 1
 		_attack()
-	
 	if health == 0:
 		queue_free()
 
