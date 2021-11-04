@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/tileSprites/placeholderTile.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/levels/Collectible.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/levels/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/actors/Boss.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 100, 99, 0, 99, 0, 0, 100, 0 )
@@ -48,7 +49,7 @@ collision_layer = 3
 collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 70.5177, 407.773 )
+position = Vector2( -59.7963, 405.654 )
 collision_mask = 3
 
 [node name="Collectible" parent="." instance=ExtResource( 3 )]
@@ -56,3 +57,6 @@ position = Vector2( 253, 387 )
 scale = Vector2( 1, 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="Enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 118.66, 431.201 )
