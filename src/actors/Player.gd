@@ -38,6 +38,7 @@ func get_input() -> void:
 				velocity.y += jump_speed
 
 		if Input.is_action_just_pressed("attack") and jumping == false:
+			ableToMove = false
 			attacking = true
 			$AnimationPlayer.play("Attack")
 
@@ -60,8 +61,6 @@ func get_input() -> void:
 			velocity.x += -400
 		elif $Sprite.scale.x == -1:
 			velocity.x += 400
-	else:
-		ableToMove = true
 
 
 func _physics_process(delta: float) -> void:
@@ -85,6 +84,7 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 	if anim_name == "Attack" or anim_name == "Dodge":
 		$AnimationPlayer.play("Idle")
 		attacking = false
+		ableToMove = true
 
 
 func _on_DodgeCooldownTimer_timeout():
