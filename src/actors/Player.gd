@@ -75,6 +75,7 @@ func _on_Area2D_body_entered(body : Node2D) -> void:
 	if body is Boss or body.name =="AttackHitbox" or body.name == "EnemyHitbox":
 		if damageable:
 			Globals.health -= 1
+			$DamageAnimation.play("Damaged")
 			damageable = false
 			$DamageCooldown.start()
 		if Globals.health == 0:
@@ -93,5 +94,5 @@ func _on_DodgeCooldownTimer_timeout() -> void:
 	previously_dodged = false
 
 
-func _on_DamageCooldown_timeout():
+func _on_DamageCooldown_timeout() -> void:
 	damageable = true
