@@ -1,7 +1,6 @@
 class_name Enemy
 extends KinematicBody2D
 
-
 onready var initial_pos := Vector2(position.x,position.y)
 
 const gravity := 700
@@ -27,12 +26,13 @@ func _physics_process(delta : float) -> void:
 		$AnimationPlayer.play("Walk")
 
 
-func _on_Area2D_area_entered(area):
+func _on_Area2D_area_entered(area : Area2D) -> void:
 	attacked = true
 	if area.name == "SwordHitbox":
 		health -= 1
 	if health == 0:
 		queue_free()
 
-func _on_Area2D_area_exited(area):
+
+func _on_Area2D_area_exited(_area : Area2D) -> void:
 	attacked = false

@@ -111,7 +111,7 @@ tracks/0/keys = {
 "values": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7.83004, 19.8629 )
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -147,7 +147,7 @@ position = Vector2( 0, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 position = Vector2( -0.117207, 12.6955 )
-shape = SubResource( 5 )
+shape = SubResource( 9 )
 
 [node name="SpriteCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.33371, 20.5704 )

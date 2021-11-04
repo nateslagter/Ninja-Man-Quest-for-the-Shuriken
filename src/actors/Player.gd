@@ -11,7 +11,6 @@ var jumping := false
 var attacking := false
 var previously_dodged := false
 var ableToMove := true
-
 var dash_frames := 0
 var dashMultiplier := 2
 
@@ -54,7 +53,6 @@ func get_input() -> void:
 			dash_frames = 10
 			velocity.x = velocity.x * dashMultiplier
 			$DodgeCooldownTimer.start()
-
 	if dash_frames > 0:
 		dash_frames -= 1
 		if $Sprite.scale.x == 1:
@@ -86,6 +84,6 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 		ableToMove = true
 
 
-func _on_DodgeCooldownTimer_timeout():
+func _on_DodgeCooldownTimer_timeout() -> void:
 	print("Ready to dodge!")
 	previously_dodged = false

@@ -1,8 +1,6 @@
 class_name Boss
 extends KinematicBody2D
 
-
-
 const gravity := 700
 const jump_speed := -400
 
@@ -14,7 +12,7 @@ var health := 20
 var movable := true
 
 
-func _physics_process(delta : float) -> void:
+func _physics_process(_delta : float) -> void:
 	if movable:
 		$AnimationPlayer.play("Walk")
 		if position.x > initial_pos.x + 200:
@@ -42,11 +40,11 @@ func _on_Hitbox_area_entered(area : Area2D) -> void:
 		queue_free()
 
 
-func _on_WaitTimer_timeout():
+func _on_WaitTimer_timeout() -> void:
 	movable = true
 
 
-func _on_AttackTimer_timeout():
+func _on_AttackTimer_timeout() -> void:
 	$AnimationPlayer.play("Attack")
 
 
