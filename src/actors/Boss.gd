@@ -8,41 +8,50 @@ const jump_speed := -400
 
 onready var initial_pos := Vector2(position.x,position.y)
 
-var velocity := Vector2(50,0)
-var switch_velocity = 50
+var velocity := Vector2(150,0)
+var switch_velocity = 150
 var health := 3
-var attacked := false
-var moving := false
+var movable := true
+var wait_count := 0
 
-func _ready():
-	$WaitTimer.start()
-	scale.x *= -1
 
 func _physics_process(delta : float) -> void:
-	if !moving:
-		$AnimationPlayer.play("Idle")
-	else:
+	if movable:
+		$AnimationPlayer.play("Walk")
+		if position.x > initial_pos.x + 200:
+			scale.x *= -1
+			$AnimationPlayer.play("Idle")
+			switch_velocity *= -1
+			velocity = Vector2(switch_velocity, 0)
+			movable = false
+			$WaitTimer.start()
+			$AttackTimer.start()
+		elif position.x < initial_pos.x - 200:
+			scale.x *= -1
+			$AnimationPlayer.play("Idle")
+			switch_velocity *= -1
+			velocity = Vector2(switch_velocity, 0)
+			movable = false
+			$WaitTimer.start()
+			$AttackTimer.start()
 		var _ignored = move_and_slide(velocity,Vector2(0,0))
-	velocity.y += gravity * delta
 	
-
-func _on_MoveTimer_timeout():
-	$WaitTimer.start()
-	moving = false
-	scale.x *= -1
-	
-
-func _on_WaitTimer_timeout():
-	moving = true
-	$AnimationPlayer.play("Walk")
-	switch_velocity *= -1
-	velocity = Vector2(switch_velocity, 0)
-	$MoveTimer.start()
-
-
 
 func _on_Hitbox_area_entered(area : Area2D) -> void:
 	if area.name == "SwordHitbox":
 		health -= 1
 	if health == 0:
 		queue_free()
+
+
+func _on_WaitTimer_timeout():
+	movable = true
+
+
+func _on_AttackTimer_timeout():
+	$AnimationPlayer.play("Attack")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
+	if anim_name == "Attack":
+		$AnimationPlayer.play("Idle")

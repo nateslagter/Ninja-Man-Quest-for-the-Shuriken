@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
-	if body is Boss:
+	if body is Boss or body.name =="AttackHitbox":
 		Globals.health -= 1
 		print("lost health")
 		if Globals.health == 0:

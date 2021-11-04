@@ -125,4 +125,5 @@ current = true
 process_mode = 0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]
