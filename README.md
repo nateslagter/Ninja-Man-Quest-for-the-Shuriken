@@ -10,10 +10,7 @@ First iteration of CS315 Final Project by Landon Hammond and Nate Slagter
 ## Project Report
 ### Team Reflection
 
-explicit treatment of  
-* team's successes 
-* shortcomings 
-* plans to learn from mistakes.
+This iteration was a nice way to ease into the final project. Our team found great success in our communication and cooperation; we are able to get a fully working version of the game up very quickly and had good, civil discussions about some different ideas we had for mechanics in the game. Everything was resolved in a satisfactory way for the team, and no speedbumps came of this. However, even with our great cooperation, our team did fall short in a few areas during this iteraation. The biggest flaw was our management of time; over the last few weeks, we had been making slow but steady progress. We had been mostly talking about ideas and planning out our next steps; however, the deadline was upon us sooner than we realized, and we were forced to cram more than we would like to admit. Our team has set up a meeting immediately after the end of the first iteration to better plan out what we would like to accomplish for the next iteration, and a reasonable timeframe for us to do it in. We do not feel that our project suffered because of our subpar time management, but it is something that we would like to improve in the future.
 
 
 ### Team-Evaluation
@@ -21,16 +18,16 @@ explicit treatment of
 - [X] D-2: The repository contains a <code>README.md</code> file in its top-level directory.
 - [X] D-3: The project content is eligible for an <a href="https://www.esrb.org/ratings-guide/">ESRB Rating</a> of M or less.
 - [X] C-1: Your repository is well-formed, with an appropriate <code>.gitignore</code> file and no unnecessary files tracked.
-- [ ] C-2: Your release is tagged using <a href="https://semver.org/">semantic versioning</a> where the major version is zero, the minor version is the iteration number, and the patch version is incremented as usual for each change made to the minor version, and the release name matches the release tag.
+- [X] C-2: Your release is tagged using <a href="https://semver.org/">semantic versioning</a> where the major version is zero, the minor version is the iteration number, and the patch version is incremented as usual for each change made to the minor version, and the release name matches the release tag.
 - [X] C-3: You have a clear legal right to use all incorporated assets, and the licenses for all third-party assets are tracked in the <code>README.md</code> file.
 - [X] C-4: The <code>README.md</code> contains instructions for how to play the game or such instructions are incorporated into the game itself.
 - [X] C-5: The project content is eligible for an <a href="https://www.esrb.org/ratings-guide/">ESRB Rating</a> of T or less.
 - [X] C-6: The release demonstrates the core gameplay loop: the player can take actions that move them toward a goal.
-- [ ] B-1: The <code>README.md</code> file contains a personal reflection on the iteration and self-evaluation, as defined above.
-- [ ] B-2: The game runs without errors or warnings.
-- [ ] B-3: The source code and project structure comply with our adopted style guides.
+- [X] B-1: The <code>README.md</code> file contains a personal reflection on the iteration and self-evaluation, as defined above.
+- [X] B-2: The game runs without errors or warnings.
+- [X] B-3: The source code and project structure comply with our adopted style guides.
 - [X] B-4: Clear progress has been made on the game with respect to the project plan.
-- [ ] A-1: The source code contains no warnings. All warnings are properly addressed, not just ignored.
+- [X] A-1: The source code contains no warnings. All warnings are properly addressed, not just ignored.
 - [X] A-2: The game includes the conventional player experience loop of title, gameplay, and ending.
 - [X] A-3: Earn <em>N</em>*&lceil;<em>P</em>/2&rceil; stars, where <em>N</em> is the iteration number and <em>P</em> is the number of people on the team.
 ***
