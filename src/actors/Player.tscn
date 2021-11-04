@@ -111,7 +111,7 @@ tracks/0/keys = {
 "values": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "Damaged"
 length = 0.3
 tracks/0/type = "value"
@@ -127,7 +127,7 @@ tracks/0/keys = {
 "values": [ false, true, false, true ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 7.83004, 19.8629 )
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -147,7 +147,7 @@ anims/Jump = SubResource( 3 )
 anims/Walk = SubResource( 4 )
 
 [node name="DamageAnimation" type="AnimationPlayer" parent="."]
-anims/Damaged = SubResource( 10 )
+anims/Damaged = SubResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -166,7 +166,7 @@ position = Vector2( 0, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 position = Vector2( -0.117207, 12.6955 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="SpriteCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( -0.33371, 20.5704 )
@@ -181,6 +181,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="DamageCooldown" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
