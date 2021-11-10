@@ -2,6 +2,7 @@ extends "res://src/StateMachine/State.gd"
 
 onready var animation_player = get_node("../AnimationPlayer")
 onready var sprite = get_node("../Sprite")
+onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
 
 var attacking := false
 var jumping := false
@@ -33,8 +34,10 @@ func get_input(delta : float) -> void:
 func _switch_direction() -> void:
 	if parent.velocity.x < 0:
 		sprite.set_flip_h(true)
+		sword_hitbox.scale.x = -1
 	if parent.velocity.x > 0:
 		sprite.set_flip_h(false)
+		sword_hitbox.scale.x = 1
 	
 
 func _transition(delta : float):

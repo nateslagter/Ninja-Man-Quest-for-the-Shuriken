@@ -7,13 +7,7 @@ const jump_speed := -300
 const gravity := 700
 
 var velocity := Vector2()
-var jumping := false
-var attacking := false
-var previously_dodged := false
-var ableToMove := true
-var dash_frames := 0
-var dashMultiplier := 2
-var damageable = true
+
 	
 func attack() -> void:
 	$AnimationPlayer.play("Attack")
