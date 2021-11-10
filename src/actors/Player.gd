@@ -30,8 +30,9 @@ func get_input(delta : float) -> void:
 			ableToMove = false
 			attacking = true
 			$AnimationPlayer.play("Attack")
-	velocity = move_and_slide(velocity,Vector2(0,-1))
-	velocity.y += gravity * delta
+	if !is_on_floor():
+		velocity.y += gravity * delta
+	velocity = move_and_slide(velocity,Vector2.UP)
 
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
@@ -40,7 +41,7 @@ func _on_Area2D_body_entered(body : Node2D) -> void:
 			Globals.health -= 1
 			$DamageAnimation.play("Damaged")
 			damageable = false
-			$DamageCooldown.start()
+			$DamageCooldown.start() 
 		if Globals.health == 0:
 			queue_free()
 			if get_tree().change_scene("res://src/levels/gameOverLoss.tscn") != OK:

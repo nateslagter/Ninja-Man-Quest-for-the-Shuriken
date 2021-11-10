@@ -1,7 +1,7 @@
 extends Node
 
-enum States {IDLE,ATTACKING,RUNNING,FALLING, JUMPING}
-var state 
+enum States {IDLE,ATTACKING,RUNNING,FALLING,JUMPING}
+var state = null setget set_state
 var previous_state
 
 onready var parent = get_parent()
@@ -17,8 +17,8 @@ func _physics_process(delta):
 func _logic(delta : float) -> void:
 	pass
 
-func _transition(delta : float) -> void:
-	pass
+func _transition(delta : float):
+	return null
 	
 func _enter_state(new_state) -> void:
 	pass
