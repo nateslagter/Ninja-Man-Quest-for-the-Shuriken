@@ -154,7 +154,7 @@ anims/Damaged = SubResource( 7 )
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 6
-frame = 22
+frame = 7
 
 [node name="SwordHitbox" type="Area2D" parent="Sprite"]
 
@@ -177,6 +177,6 @@ shape = SubResource( 9 )
 current = true
 drag_margin_v_enabled = true
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]

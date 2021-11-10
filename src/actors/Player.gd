@@ -18,20 +18,20 @@ var damageable = true
 
 func get_input(delta : float) -> void:
 	velocity.x = 0
-	if ableToMove: 
-		if Input.is_action_pressed("move_left"):
-			velocity.x -= run_speed
-		if Input.is_action_pressed("move_right"):
-			velocity.x += run_speed
-		if Input.is_action_just_pressed("jump"):
-			velocity.y += jump_speed
-		if Input.is_action_just_pressed("attack"):
-			ableToMove = false
-			attacking = true
-			$AnimationPlayer.play("Attack")
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= run_speed
+	if Input.is_action_pressed("move_right"):
+		velocity.x += run_speed
+	if Input.is_action_just_pressed("jump"):
+		velocity.y += jump_speed
+	if Input.is_action_just_pressed("attack"):
+		attack()
 	if !is_on_floor():
 		velocity.y += gravity * delta
 	velocity = move_and_slide(velocity,Vector2.UP)
+	
+func attack() -> void:
+	$AnimationPlayer.play("Attack")
 
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
@@ -45,11 +45,3 @@ func _on_Area2D_body_entered(body : Node2D) -> void:
 			if get_tree().change_scene("res://src/levels/gameOverLoss.tscn") != OK:
 				print ("An unexpected error occured while trying to switch to gameOverLoss scene")
 			
-
-func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
-	if anim_name == "Attack" or anim_name == "Dodge":
-		$AnimationPlayer.play("Idle")
-		attacking = false
-		ableToMove = true
-
-

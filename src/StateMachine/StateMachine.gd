@@ -2,12 +2,15 @@ extends "res://src/StateMachine/State.gd"
 
 onready var animation_player = get_node("../AnimationPlayer")
 
-func _ready():
+var attacking := false
+
+func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
 
 
 func _logic(delta : float) -> void:
-	parent.get_input(delta)
+	if state != States.ATTACKING:
+		parent.get_input(delta)
 
 
 func _transition(delta : float):
@@ -38,6 +41,8 @@ func _transition(delta : float):
 				return States.IDLE
 			elif parent.velocity.y < 0:
 				return States.JUMPING
+			
+			
 		
 func _enter_state(state) -> void:
 	match state:
@@ -47,6 +52,17 @@ func _enter_state(state) -> void:
 			animation_player.play("Jump")
 		States.RUNNING:
 			animation_player.play("Walk")
+			
 	
 func _exit_state(state) -> void:
 	pass
+
+
+func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
+	if anim_name == "Attack":
+		if parent.velocity.x != 0:
+			state = States.RUNNING
+			_enter_state(state)
+		else:
+			state = States.IDLE
+			_enter_state(state)
