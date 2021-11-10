@@ -7,13 +7,7 @@ const jump_speed := -300
 const gravity := 700
 
 var velocity := Vector2()
-var jumping := false
-var attacking := false
-var previously_dodged := false
-var ableToMove := true
-var dash_frames := 0
-var dashMultiplier := 2
-var damageable = true
+
 	
 func attack() -> void:
 	$AnimationPlayer.play("Attack")
@@ -21,10 +15,8 @@ func attack() -> void:
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
 	if body is Boss or body.name =="AttackHitbox" or body.name == "EnemyHitbox":
-		if damageable:
-			Globals.health -= 1
-			$DamageAnimation.play("Damaged")
-			damageable = false
+		Globals.health -= 1
+		$DamageAnimation.play("Damaged")
 		if Globals.health == 0:
 			queue_free()
 			if get_tree().change_scene("res://src/levels/gameOverLoss.tscn") != OK:
