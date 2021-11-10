@@ -43,6 +43,8 @@ func _enter_state(state) -> void:
 	match state:
 		States.IDLE:
 			animation_player.play("Idle")
+		States.JUMPING:
+			animation_player.play("Jump")
 	
 func _exit_state(state) -> void:
 	pass
