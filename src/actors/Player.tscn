@@ -169,13 +169,13 @@ position = Vector2( 0, 8 )
 position = Vector2( -0.117207, 12.6955 )
 shape = SubResource( 8 )
 
-[node name="SpriteCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( -0.33371, 20.5704 )
-shape = SubResource( 9 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 drag_margin_v_enabled = true
+
+[node name="SpriteCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2( -0.33371, 20.5704 )
+shape = SubResource( 9 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]

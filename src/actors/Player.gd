@@ -21,10 +21,8 @@ func attack() -> void:
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
 	if body is Boss or body.name =="AttackHitbox" or body.name == "EnemyHitbox":
-		if damageable:
-			Globals.health -= 1
-			$DamageAnimation.play("Damaged")
-			damageable = false
+		Globals.health -= 1
+		$DamageAnimation.play("Damaged")
 		if Globals.health == 0:
 			queue_free()
 			if get_tree().change_scene("res://src/levels/gameOverLoss.tscn") != OK:
