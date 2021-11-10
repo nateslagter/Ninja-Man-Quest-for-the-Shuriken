@@ -1,6 +1,6 @@
 extends Control
 
-func _on_PlayButton_pressed():
+func _on_PlayButton_pressed() -> void:
 	Globals.score = 0
 	Globals.health = 5
 	if get_tree().change_scene("res://src/levels/testLevel.tscn") != OK:
