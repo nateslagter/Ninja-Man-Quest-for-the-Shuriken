@@ -45,6 +45,8 @@ func _enter_state(state) -> void:
 			animation_player.play("Idle")
 		States.JUMPING:
 			animation_player.play("Jump")
+		States.RUNNING:
+			animation_player.play("Walk")
 	
 func _exit_state(state) -> void:
 	pass
