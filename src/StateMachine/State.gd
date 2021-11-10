@@ -1,6 +1,6 @@
 extends Node
 
-enum States {IDLE,ATTACKING,RUNNING,IN_AIR}
+enum States {IDLE,ATTACKING,RUNNING,FALLING, JUMPING}
 var state 
 var previous_state
 
@@ -14,19 +14,20 @@ func _physics_process(delta):
 			set_state(transition)
 			
 
-func _logic(deta : float) -> void:
+func _logic(delta : float) -> void:
 	pass
 
 func _transition(delta : float) -> void:
 	pass
 	
-func _enter_state(state) -> void:
+func _enter_state(new_state) -> void:
 	pass
 	
-func _exit_state(state) -> void:
+func _exit_state(new_state) -> void:
 	pass
 
-func set_state(state) -> void:
+func set_state(new_state) -> void:
+	state = new_state
 	if state != null:
 		_enter_state(state)
 
