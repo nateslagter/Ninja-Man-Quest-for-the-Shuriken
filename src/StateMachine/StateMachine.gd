@@ -3,6 +3,7 @@ extends "res://src/StateMachine/State.gd"
 onready var animation_player = get_node("../AnimationPlayer")
 
 var attacking := false
+var jumping := false
 
 func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
@@ -10,12 +11,29 @@ func _ready() -> void:
 
 func _logic(delta : float) -> void:
 	if state != States.ATTACKING:
-		parent.get_input(delta)
+		get_input(delta)
+		
+func get_input(delta : float) -> void:
+	parent.velocity.x = 0
+	if Input.is_action_pressed("move_left"):
+		parent.velocity.x -= parent.run_speed
+	if Input.is_action_pressed("move_right"):
+		parent.velocity.x += parent.run_speed
+	if Input.is_action_just_pressed("jump"):
+		if jumping == false:
+			parent.velocity.y += parent.jump_speed
+	if Input.is_action_just_pressed("attack"):
+		parent.attack()
+	if !parent.is_on_floor():
+		parent.velocity.y += parent.gravity * delta
+	parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 
 
 func _transition(delta : float):
 	match state:
 		States.IDLE:
+			if jumping == true:
+				jumping = false
 			if !parent.is_on_floor():
 				if parent.velocity.y < 0:
 					return States.JUMPING
@@ -42,22 +60,18 @@ func _transition(delta : float):
 			elif parent.velocity.y < 0:
 				return States.JUMPING
 			
-			
 		
 func _enter_state(state) -> void:
 	match state:
 		States.IDLE:
 			animation_player.play("Idle")
 		States.JUMPING:
+			jumping = true
 			animation_player.play("Jump")
 		States.RUNNING:
 			animation_player.play("Walk")
 			
-	
-func _exit_state(state) -> void:
-	pass
-
-
+			
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 	if anim_name == "Attack":
 		if parent.velocity.x != 0:

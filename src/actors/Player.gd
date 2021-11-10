@@ -14,21 +14,6 @@ var ableToMove := true
 var dash_frames := 0
 var dashMultiplier := 2
 var damageable = true
-
-
-func get_input(delta : float) -> void:
-	velocity.x = 0
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= run_speed
-	if Input.is_action_pressed("move_right"):
-		velocity.x += run_speed
-	if Input.is_action_just_pressed("jump"):
-		velocity.y += jump_speed
-	if Input.is_action_just_pressed("attack"):
-		attack()
-	if !is_on_floor():
-		velocity.y += gravity * delta
-	velocity = move_and_slide(velocity,Vector2.UP)
 	
 func attack() -> void:
 	$AnimationPlayer.play("Attack")
