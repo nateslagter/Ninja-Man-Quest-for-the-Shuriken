@@ -1,6 +1,7 @@
 extends "res://src/StateMachine/State.gd"
 
 onready var animation_player = get_node("../AnimationPlayer")
+onready var sprite = get_node("../Sprite")
 
 var attacking := false
 var jumping := false
@@ -26,8 +27,15 @@ func get_input(delta : float) -> void:
 		parent.attack()
 	if !parent.is_on_floor():
 		parent.velocity.y += parent.gravity * delta
+	_switch_direction()
 	parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
-
+	
+func _switch_direction() -> void:
+	if parent.velocity.x < 0:
+		sprite.set_flip_h(true)
+	if parent.velocity.x >= 0:
+		sprite.set_flip_h(false)
+	
 
 func _transition(delta : float):
 	match state:
