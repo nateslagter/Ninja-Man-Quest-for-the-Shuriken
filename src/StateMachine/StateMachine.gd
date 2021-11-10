@@ -33,7 +33,7 @@ func get_input(delta : float) -> void:
 func _switch_direction() -> void:
 	if parent.velocity.x < 0:
 		sprite.set_flip_h(true)
-	if parent.velocity.x >= 0:
+	if parent.velocity.x > 0:
 		sprite.set_flip_h(false)
 	
 
