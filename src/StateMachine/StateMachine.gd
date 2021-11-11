@@ -6,6 +6,7 @@ onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
 
 var attacking := false
 var jumping := false
+var slide_velocity = Vector2(-5000,0)
 
 func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
@@ -26,6 +27,8 @@ func get_input(delta : float) -> void:
 			parent.velocity.y += parent.jump_speed
 	if Input.is_action_just_pressed("attack"):
 		parent.attack()
+	if Input.is_action_just_pressed("dodge_backwards"):
+		parent.move_and_slide(slide_velocity,Vector2.UP)
 	if !parent.is_on_floor():
 		parent.velocity.y += parent.gravity * delta
 	_switch_direction()
@@ -35,10 +38,11 @@ func _switch_direction() -> void:
 	if parent.velocity.x < 0:
 		sprite.set_flip_h(true)
 		sword_hitbox.scale.x = -1
+		slide_velocity = Vector2(5000,0)
 	if parent.velocity.x > 0:
 		sprite.set_flip_h(false)
 		sword_hitbox.scale.x = 1
-	
+		slide_velocity = Vector2(-5000,0)
 
 func _transition(delta : float):
 	match state:

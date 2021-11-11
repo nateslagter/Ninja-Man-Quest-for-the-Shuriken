@@ -1,6 +1,6 @@
 extends Node
 
-enum States {IDLE,ATTACKING,RUNNING,FALLING,JUMPING}
+enum States {IDLE,ATTACKING,RUNNING,FALLING,JUMPING, DODGING}
 var state = null setget set_state
 var previous_state
 
