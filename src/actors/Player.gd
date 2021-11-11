@@ -2,9 +2,9 @@ class_name Player
 extends KinematicBody2D
 
 
-const run_speed := 200
-const jump_speed := -300
-const gravity := 700
+const RUN_SPEED := 200
+const JUMP_SPEED := -300
+const GRAVITY := 700
 
 var damageable := true
 var velocity := Vector2()
