@@ -41,13 +41,15 @@ func _enter_state(state) -> void:
 
 func _on_WaitTimer_timeout():
 	waiting = false
-	sprite.set_flip_h(false)
 	run_timer.start()
 	
 
 
 func _on_RunTimer_timeout():
 	waiting = true
-	sprite.set_flip_h(true)
+	if 	sprite.is_flipped_h() == true:
+		sprite.set_flip_h(false)
+	else:
+		sprite.set_flip_h(true)
 	wait_timer.start()
 	parent.velocity = Vector2(-parent.velocity.x,parent.velocity.y)
