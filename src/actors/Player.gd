@@ -8,8 +8,9 @@ const GRAVITY := 700
 
 var damageable := true
 var velocity := Vector2()
+var ableToDogde := true
 
-	
+
 func attack() -> void:
 	$AnimationPlayer.play("Attack")
 
