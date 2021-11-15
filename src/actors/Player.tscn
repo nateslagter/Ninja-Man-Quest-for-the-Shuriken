@@ -155,7 +155,7 @@ anims/Damaged = SubResource( 7 )
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 6
-frame = 22
+frame = 7
 
 [node name="SwordHitbox" type="Area2D" parent="Sprite"]
 
