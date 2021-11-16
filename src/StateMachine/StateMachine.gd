@@ -11,7 +11,7 @@ var attacking := false
 var jumping := false
 var slide_velocity = Vector2(-2500,0)
 var enemy_body 
-
+var knockback_direction : int
 
 func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
@@ -89,6 +89,8 @@ func _transition(delta : float):
 				parent.position.x += 8
 			else:
 				parent.position.x -= 8
+		States.KNOCKBACK:
+			parent.position.x += knockback_direction
 
 
 func _enter_state(state) -> void:
@@ -105,15 +107,12 @@ func _enter_state(state) -> void:
 		States.DODGING:
 			animation_player.play("Dodge")
 		States.KNOCKBACK:
-			print("in knockback")
+			print("entered knockback")
 			damage_player.play("Damaged")
 			if parent.global_position.x < enemy_body.global_position.x:
-				parent.position.x += 8
-				print("subtracting")
+				knockback_direction = -2
 			elif parent.global_position.x > enemy_body.global_position.x:
-				parent.position.x -= 8
-			parent.velocity.y = parent.JUMP_SPEED / 2.0
-			parent.move_and_slide(parent.velocity,Vector2.UP)
+				knockback_direction =  2
 
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
@@ -135,6 +134,11 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 func _create_knockback(body) -> void:
 	enemy_body = body
 	knocked_back = true
-	_enter_state(States.KNOCKBACK)
-	
+	get_node("../KnockbackTimer").start()
+	state = States.KNOCKBACK
+	_enter_state(state)
 
+
+func _on_KnockbackTimer_timeout() -> void:
+	state = States.IDLE
+	_enter_state(state)
