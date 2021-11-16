@@ -171,7 +171,6 @@ shape = SubResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 1.2, 1.2 )
 drag_margin_v_enabled = true
 
 [node name="SpriteCollisionShape" type="CollisionShape2D" parent="."]

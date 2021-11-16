@@ -6,9 +6,21 @@ onready var wait_timer = get_node("../WaitTimer")
 onready var run_timer = get_node("../RunTimer")
 
 var waiting : bool = true
+var player_health = Globals.health
+
 
 func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
+	
+func _process(_delta) -> void:
+	if Globals.health != player_health:
+		state = States.IDLE
+		_enter_state(state)
+		run_timer.stop()
+		wait_timer.start()
+		waiting = true
+		player_health = Globals.health
+		
 
 
 func _logic(delta : float) -> void:
