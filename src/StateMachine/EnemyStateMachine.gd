@@ -12,7 +12,6 @@ func _ready() -> void:
 
 
 func _logic(delta : float) -> void:
-	print(parent.velocity.x)
 	if !waiting:
 		var _ignored = parent.move_and_slide(parent.velocity,Vector2(0,0))
 	parent.velocity.y += parent.gravity * delta

@@ -1,5 +1,5 @@
-# Ninja Man: Quest for the Shuriken, Iteration 1
-First iteration of CS315 Final Project by Landon Hammond and Nate Slagter
+# Ninja Man: Quest for the Shuriken, Iteration 2
+Second iteration of CS315 Final Project by Landon Hammond and Nate Slagter
 
 ### How to Play: 
 * Move right: "right" or "d"  
@@ -10,7 +10,7 @@ First iteration of CS315 Final Project by Landon Hammond and Nate Slagter
 ## Project Report
 ### Team Reflection
 
-This iteration was a nice way to ease into the final project. Our team found great success in our communication and cooperation; we are able to get a fully working version of the game up very quickly and had good, civil discussions about some different ideas we had for mechanics in the game. Everything was resolved in a satisfactory way for the team, and no speedbumps came of this. However, even with our great cooperation, our team did fall short in a few areas during this iteration. The biggest flaw was our management of time; over the last few weeks, we had been making slow but steady progress. We had been mostly talking about ideas and planning out our next steps; however, the deadline was upon us sooner than we realized, and we were forced to cram more than we would like to admit. Our team has set up a meeting immediately after the end of the first iteration to better plan out what we would like to accomplish for the next iteration, and a reasonable timeframe for us to do it in. We do not feel that our project suffered because of our subpar time management, but it is something that we would like to improve in the future.
+TODO
 
 
 ### Team-Evaluation
@@ -32,7 +32,7 @@ This iteration was a nice way to ease into the final project. Our team found gre
 - [X] A-3: Earn <em>N</em>*&lceil;<em>P</em>/2&rceil; stars, where <em>N</em> is the iteration number and <em>P</em> is the number of people on the team.
 ***
 - [X] ⭐ Include a dynamic (non-static) camera
-- [ ] ⭐ Incorporate parallax background scrolling
+- [X] ⭐ Incorporate parallax background scrolling
 - [ ] ⭐ Use paper doll animations
 - [ ] ⭐ Use an <code>AnimationTree</code> with either blend spaces (3D) or an animation state machine (2D)
 - [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
