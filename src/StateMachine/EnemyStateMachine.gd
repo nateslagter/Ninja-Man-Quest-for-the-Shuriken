@@ -35,14 +35,11 @@ func _enter_state(state) -> void:
 		States.RUNNING:
 			animation_player.play("Walk")
 			
-	
-
 
 func _on_WaitTimer_timeout():
 	waiting = false
 	run_timer.start()
 	
-
 
 func _on_RunTimer_timeout():
 	waiting = true

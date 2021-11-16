@@ -6,7 +6,8 @@ enum States {
 	RUNNING,
 	FALLING,
 	JUMPING,
-	DODGING
+	DODGING,
+	KNOCKBACK
 	}
 	
 var state = null setget set_state

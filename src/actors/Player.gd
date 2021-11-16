@@ -1,6 +1,7 @@
 class_name Player
 extends KinematicBody2D
 
+signal player_hit(body)
 
 const RUN_SPEED := 200
 const JUMP_SPEED := -300
@@ -22,12 +23,7 @@ func _on_Area2D_body_entered(body : Node2D) -> void:
 		Globals.health -= 1
 		damageable = false
 		$InvincibilityTimer.start()
-		$DamageAnimation.play("Damaged")
-		velocity.y = JUMP_SPEED / 2.0
-		if global_position.x < body.global_position.x:
-			velocity.x = -800
-		elif global_position.x > body.global_position.x:
-			velocity.x = 800
+		emit_signal("player_hit",body)
 		if Globals.health == 0:
 			queue_free()
 			if get_tree().change_scene("res://src/levels/gameOverLoss.tscn") != OK:

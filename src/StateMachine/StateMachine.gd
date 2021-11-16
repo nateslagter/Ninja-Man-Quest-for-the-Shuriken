@@ -1,12 +1,16 @@
 extends "res://src/StateMachine/State.gd"
 
 onready var animation_player = get_node("../AnimationPlayer")
+onready var damage_player = get_node("../DamageAnimation")
 onready var sprite = get_node("../Sprite")
 onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
 
+
+var knocked_back := false
 var attacking := false
 var jumping := false
 var slide_velocity = Vector2(-2500,0)
+var enemy_body 
 
 
 func _ready() -> void:
@@ -14,7 +18,7 @@ func _ready() -> void:
 
 
 func _logic(delta : float) -> void:
-	if state != States.ATTACKING or state != States.DODGING:
+	if state != States.ATTACKING or state != States.DODGING or state != States.KNOCKBACK:
 		get_input(delta)
 
 
@@ -100,6 +104,16 @@ func _enter_state(state) -> void:
 			animation_player.play("Fall")
 		States.DODGING:
 			animation_player.play("Dodge")
+		States.KNOCKBACK:
+			print("in knockback")
+			damage_player.play("Damaged")
+			if parent.global_position.x < enemy_body.global_position.x:
+				parent.position.x += 8
+				print("subtracting")
+			elif parent.global_position.x > enemy_body.global_position.x:
+				parent.position.x -= 8
+			parent.velocity.y = parent.JUMP_SPEED / 2.0
+			parent.move_and_slide(parent.velocity,Vector2.UP)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
@@ -117,3 +131,10 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 		else:
 			state = States.IDLE
 			_enter_state(state)
+			
+func _create_knockback(body) -> void:
+	enemy_body = body
+	knocked_back = true
+	_enter_state(States.KNOCKBACK)
+	
+
