@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="NM:QFTS (Iteration 1)"
-run/main_scene="res://src/levels/mainMenu.tscn"
+run/main_scene="res://src/levels/levelOne.tscn"
 config/icon="res://icon.png"
 
 [autoload]
