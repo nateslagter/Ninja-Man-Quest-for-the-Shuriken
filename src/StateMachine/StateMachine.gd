@@ -113,6 +113,7 @@ func _enter_state(state) -> void:
 				knockback_direction = -2
 			elif parent.global_position.x > enemy_body.global_position.x:
 				knockback_direction =  2
+			parent.velocity.y = parent.JUMP_SPEED / 2.0
 
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
