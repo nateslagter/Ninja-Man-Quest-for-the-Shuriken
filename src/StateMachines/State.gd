@@ -23,16 +23,16 @@ func _physics_process(delta):
 			set_state(transition)
 			
 
-func _logic(delta : float) -> void:
+func _logic(_delta : float) -> void:
 	pass
 
-func _transition(delta : float):
+func _transition(_delta : float):
 	return null
 	
-func _enter_state(new_state) -> void:
+func _enter_state(_new_state) -> void:
 	pass
 	
-func _exit_state(new_state) -> void:
+func _exit_state(_new_state) -> void:
 	pass
 
 func set_state(new_state) -> void:

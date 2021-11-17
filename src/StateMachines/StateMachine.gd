@@ -1,12 +1,10 @@
-extends "res://src/StateMachine/State.gd"
+extends "res://src/StateMachines/State.gd"
 
 onready var animation_player = get_node("../AnimationPlayer")
 onready var damage_player = get_node("../DamageAnimation")
 onready var sprite = get_node("../Sprite")
 onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
 
-
-var knocked_back := false
 var attacking := false
 var jumping := false
 var slide_velocity = Vector2(-2500,0)
@@ -54,7 +52,7 @@ func _switch_direction() -> void:
 			slide_velocity = Vector2(-2500,0)
 
 
-func _transition(delta : float):
+func _transition(_delta : float):
 	match state:
 		States.IDLE:
 			if jumping == true:
@@ -108,10 +106,12 @@ func _enter_state(state) -> void:
 			animation_player.play("Dodge")
 		States.KNOCKBACK:
 			damage_player.play("Damaged")
-			if parent.global_position.x < enemy_body.global_position.x:
+			if parent.global_position.x <= enemy_body.global_position.x:
 				knockback_direction = -2
+				print("1")
 			elif parent.global_position.x > enemy_body.global_position.x:
 				knockback_direction =  2
+				print("2")
 			parent.velocity.y = parent.JUMP_SPEED / 1.5
 
 
@@ -133,8 +133,8 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 			
 func _create_knockback(body) -> void:
 	enemy_body = body
-	knocked_back = true
 	get_node("../KnockbackTimer").start()
+	parent.velocity = Vector2(0,0)
 	state = States.KNOCKBACK
 	_enter_state(state)
 

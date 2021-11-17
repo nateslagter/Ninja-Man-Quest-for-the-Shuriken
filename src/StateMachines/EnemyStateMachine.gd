@@ -1,4 +1,4 @@
-extends "res://src/StateMachine/State.gd"
+extends "res://src/StateMachines/State.gd"
 
 onready var animation_player = get_node("../AnimationPlayer")
 onready var sprite = get_node("../Sprite")
@@ -29,7 +29,7 @@ func _logic(delta : float) -> void:
 	parent.move_and_slide(Vector2(0,parent.velocity.y),Vector2(0,0))
 		
 
-func _transition(delta : float):
+func _transition(_delta : float):
 	match state:
 		States.IDLE:
 			if !waiting:
