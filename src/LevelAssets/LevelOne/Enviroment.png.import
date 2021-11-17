@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/placeholderTarget.png-de689ef597ff83979b9abc9fdcffe83d.stex"
+path="res://.import/Enviroment.png-23eafcd966b54ee1e1bd19f92ef4d9e9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ninjaSprites/placeholderTarget.png"
-dest_files=[ "res://.import/placeholderTarget.png-de689ef597ff83979b9abc9fdcffe83d.stex" ]
+source_file="res://src/LevelAssets/LevelOne/Enviroment.png"
+dest_files=[ "res://.import/Enviroment.png-23eafcd966b54ee1e1bd19f92ef4d9e9.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

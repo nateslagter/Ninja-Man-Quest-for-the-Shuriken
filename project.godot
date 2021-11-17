@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Boss",
 "language": "GDScript",
-"path": "res://src/actors/Boss.gd"
+"path": "res://src/CharacterScenes/Boss/Boss.gd"
 }, {
 "base": "Area2D",
 "class": "Collectible",
 "language": "GDScript",
-"path": "res://src/levels/Collectible.gd"
+"path": "res://src/LevelAssets/Collectible/Collectible.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://src/actors/Enemy.gd"
+"path": "res://src/CharacterScenes/Enemy/Enemy.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://src/actors/Player.gd"
+"path": "res://src/CharacterScenes/Player/Player.gd"
 } ]
 _global_script_class_icons={
 "Boss": "",
@@ -39,12 +39,12 @@ _global_script_class_icons={
 [application]
 
 config/name="NM:QFTS (Iteration 1)"
-run/main_scene="res://src/levels/levelOne.tscn"
+run/main_scene="res://src/LevelAssets/LevelOne/LevelOne.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://src/levels/Globals.gd"
+Globals="*res://src/LevelAssets/Globals/Globals.gd"
 
 [display]
 
