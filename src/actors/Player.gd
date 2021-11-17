@@ -18,7 +18,6 @@ func attack() -> void:
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
 	if (body is Boss or body.name =="AttackHitbox" or body.name == "EnemyHitbox") and damageable:
-		print(Globals.health)
 		Globals.health -= 1
 		damageable = false
 		$InvincibilityTimer.start()

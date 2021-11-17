@@ -20,7 +20,6 @@ func _process(_delta) -> void:
 		wait_timer.start()
 		waiting = true
 		player_health = Globals.health
-		
 
 
 func _logic(delta : float) -> void:

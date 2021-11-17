@@ -107,13 +107,12 @@ func _enter_state(state) -> void:
 		States.DODGING:
 			animation_player.play("Dodge")
 		States.KNOCKBACK:
-			print("entered knockback")
 			damage_player.play("Damaged")
 			if parent.global_position.x < enemy_body.global_position.x:
 				knockback_direction = -2
 			elif parent.global_position.x > enemy_body.global_position.x:
 				knockback_direction =  2
-			parent.velocity.y = parent.JUMP_SPEED / 2.0
+			parent.velocity.y = parent.JUMP_SPEED / 1.5
 
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
