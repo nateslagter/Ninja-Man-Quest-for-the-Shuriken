@@ -16,7 +16,9 @@ func _ready() -> void:
 
 
 func _logic(delta : float) -> void:
-	if state != States.ATTACKING or state != States.DODGING or state != States.KNOCKBACK:
+	if [States.KNOCKBACK,States.DODGING].has(state):
+		print("frozen input")
+	else:
 		get_input(delta)
 
 
@@ -113,6 +115,7 @@ func _enter_state(state) -> void:
 				knockback_direction =  2
 				print("2")
 			parent.velocity.y = parent.JUMP_SPEED / 1.5
+			parent.move_and_slide(Vector2(0,parent.velocity.y),Vector2.UP)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
