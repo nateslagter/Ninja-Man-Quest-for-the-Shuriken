@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://src/CharacterScenes/Enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/LevelAssets/LevelOne/Midleground.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/CharacterScenes/Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/LevelAssets/MenuScenes/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/LevelAssets/LevelOne/LevelOne.gd" type="Script" id=7]
+[ext_resource path="res://src/LevelAssets/MenuScenes/SceneTransition.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Enviroment.png 0"
@@ -1042,7 +1043,7 @@ texture = ExtResource( 2 )
 position = Vector2( 79.6951, 17.9465 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 24, 20.6955 )
+position = Vector2( 32, 20.6955 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
@@ -1054,5 +1055,7 @@ position = Vector2( 2396.37, -100.794 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/EndOfLevel"]
 position = Vector2( 68.9995, 19.3489 )
 shape = SubResource( 100 )
+
+[node name="SceneTransition" parent="." instance=ExtResource( 8 )]
 
 [connection signal="area_entered" from="Areas/EndOfLevel" to="." method="_on_EndOfLevel_area_entered"]
