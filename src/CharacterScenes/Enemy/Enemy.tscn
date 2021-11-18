@@ -5,10 +5,10 @@
 [ext_resource path="res://src/CharacterScenes/Enemy/EnemyStateMachine.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8.97833, 20.0585 )
+extents = Vector2( 6.95284, 20.0585 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9.52011, 19.684 )
+extents = Vector2( 8.44524, 19.684 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Attack"
@@ -79,7 +79,7 @@ shape = SubResource( 1 )
 [node name="EnemyHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
-position = Vector2( -13.8881, 23.3936 )
+position = Vector2( -14.2938, 23.6826 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
