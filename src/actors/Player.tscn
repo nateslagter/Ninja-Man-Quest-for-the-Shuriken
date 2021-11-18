@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/ninjaSprites/player.png" type="Texture" id=1]
 [ext_resource path="res://src/actors/Player.gd" type="Script" id=2]
@@ -93,6 +93,22 @@ tracks/0/keys = {
 "values": [ 19, 20, 21 ]
 }
 
+[sub_resource type="Animation" id=10]
+resource_name = "KnockedBack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 22 ]
+}
+
 [sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
@@ -146,6 +162,7 @@ anims/Dodge = SubResource( 2 )
 anims/Fall = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 anims/Jump = SubResource( 5 )
+anims/KnockedBack = SubResource( 10 )
 anims/Walk = SubResource( 6 )
 
 [node name="DamageAnimation" type="AnimationPlayer" parent="."]
@@ -155,6 +172,7 @@ anims/Damaged = SubResource( 7 )
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 6
+frame = 22
 
 [node name="SwordHitbox" type="Area2D" parent="Sprite"]
 
@@ -183,13 +201,8 @@ wait_time = 2.0
 
 [node name="DodgeTimer" type="Timer" parent="."]
 
-[node name="KnockbackTimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [connection signal="player_hit" from="." to="PlayerStateMachine" method="_create_knockback"]
 [connection signal="animation_finished" from="AnimationPlayer" to="PlayerStateMachine" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
-[connection signal="timeout" from="KnockbackTimer" to="PlayerStateMachine" method="_on_KnockbackTimer_timeout"]

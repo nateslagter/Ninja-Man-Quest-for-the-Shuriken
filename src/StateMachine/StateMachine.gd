@@ -18,7 +18,9 @@ func _ready() -> void:
 
 
 func _logic(delta : float) -> void:
-	if state != States.ATTACKING or state != States.DODGING or state != States.KNOCKBACK:
+	if state == States.DODGING or state == States.ATTACKING or state == States.KNOCKBACK:
+		print("hello")
+	else:
 		get_input(delta)
 
 
@@ -109,11 +111,12 @@ func _enter_state(state) -> void:
 		States.KNOCKBACK:
 			print("entered knockback")
 			damage_player.play("Damaged")
+			parent.velocity.y = parent.JUMP_SPEED / 2.0
 			if parent.global_position.x < enemy_body.global_position.x:
 				knockback_direction = -2
 			elif parent.global_position.x > enemy_body.global_position.x:
 				knockback_direction =  2
-			parent.velocity.y = parent.JUMP_SPEED / 2.0
+			animation_player.play("KnockedBack")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
@@ -131,15 +134,16 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 		else:
 			state = States.IDLE
 			_enter_state(state)
-			
+	if anim_name == "KnockedBack":
+		if parent.velocity.x != 0:
+			state = States.RUNNING
+			_enter_state(state)
+		else:
+			state = States.IDLE
+			_enter_state(state)
+
+
 func _create_knockback(body) -> void:
 	enemy_body = body
-	knocked_back = true
-	get_node("../KnockbackTimer").start()
 	state = States.KNOCKBACK
-	_enter_state(state)
-
-
-func _on_KnockbackTimer_timeout() -> void:
-	state = States.IDLE
 	_enter_state(state)
