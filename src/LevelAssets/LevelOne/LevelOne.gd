@@ -3,7 +3,7 @@ extends Node2D
 
 func _ready():
 	$SceneTransition/AnimationPlayer.play("SweepOut")
-
+	
 
 func _on_EndOfLevel_area_entered(_area):
 	$SceneTransition/AnimationPlayer.play("SweepIn")

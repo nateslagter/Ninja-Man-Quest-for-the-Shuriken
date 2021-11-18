@@ -1058,4 +1058,14 @@ shape = SubResource( 100 )
 
 [node name="SceneTransition" parent="." instance=ExtResource( 8 )]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -150.837
+margin_top = -60.2037
+margin_right = 221.163
+margin_bottom = 185.796
+color = Color( 0.0705882, 0.0431373, 0.0196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="area_entered" from="Areas/EndOfLevel" to="." method="_on_EndOfLevel_area_entered"]
