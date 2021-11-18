@@ -9,7 +9,7 @@ var attacking := false
 var jumping := false
 var slide_velocity = Vector2(-2500,0)
 var enemy_body 
-var knockback_direction : int
+var knockback_direction : float
 
 func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
@@ -114,10 +114,10 @@ func _enter_state(state) -> void:
 		States.KNOCKBACK:
 			damage_player.play("Damaged")
 			if parent.global_position.x <= enemy_body.global_position.x:
-				knockback_direction = -2
+				knockback_direction = -2.5
 			elif parent.global_position.x > enemy_body.global_position.x:
-				knockback_direction =  2
-			parent.velocity.y += parent.JUMP_SPEED
+				knockback_direction =  2.5
+			parent.velocity.y += parent.JUMP_SPEED / 2
 
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
