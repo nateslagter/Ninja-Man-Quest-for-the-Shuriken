@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/CharacterScenes/Player/player.png" type="Texture" id=1]
 [ext_resource path="res://src/CharacterScenes/Player/Player.gd" type="Script" id=2]
-[ext_resource path="res://src/StateMachines/StateMachine.gd" type="Script" id=3]
+[ext_resource path="res://src/StateMachines/PlayerStateMachine.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Attack"
