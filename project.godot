@@ -14,12 +14,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/CharacterScenes/Boss/Boss.gd"
 }, {
-"base": "Area2D",
+"base": "Reference",
 "class": "Collectible",
 "language": "GDScript",
 "path": "res://src/LevelAssets/Collectible/Collectible.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Reference",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://src/CharacterScenes/Enemy/Enemy.gd"

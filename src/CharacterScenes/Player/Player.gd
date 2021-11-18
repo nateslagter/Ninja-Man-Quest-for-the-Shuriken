@@ -24,8 +24,9 @@ func _on_Area2D_body_entered(body : Node2D) -> void:
 		emit_signal("player_hit",body)
 		if Globals.health == 0:
 			queue_free()
-			if get_tree().change_scene("res://src/levels/gameOverLoss.tscn") != OK:
+			if get_tree().change_scene("res://src/LevelAssets/MenuScenes/gameOverLoss.tscn") != OK:
 				print ("An unexpected error occured while trying to switch to gameOverLoss scene")
+
 
 
 func _on_InvincibilityTimer_timeout() -> void:

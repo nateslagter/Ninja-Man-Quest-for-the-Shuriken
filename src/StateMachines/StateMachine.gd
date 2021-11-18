@@ -23,9 +23,11 @@ func _logic(delta : float) -> void:
 		apply_gravity(delta)
 		parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 
+
 func apply_gravity(delta : float) -> void:
 	if !parent.is_on_floor():
 		parent.velocity.y += parent.GRAVITY * delta
+
 
 func get_input(delta : float) -> void:
 	parent.velocity.x = 0
@@ -95,7 +97,6 @@ func _transition(delta : float):
 			parent.position.x += knockback_direction
 			parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 			apply_gravity(delta)
-			
 
 
 func _enter_state(state) -> void:

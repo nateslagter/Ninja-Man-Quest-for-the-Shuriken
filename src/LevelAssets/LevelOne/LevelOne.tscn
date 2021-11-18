@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://src/CharacterScenes/Enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/LevelAssets/LevelOne/Midleground.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/LevelAssets/LevelOne/Background Extended.png" type="Texture" id=4]
 [ext_resource path="res://src/CharacterScenes/Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/LevelAssets/MenuScenes/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/LevelAssets/LevelOne/LevelOne.gd" type="Script" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Enviroment.png 0"
@@ -1000,7 +1001,11 @@ points = PoolVector2Array( 0, 0, 16, 16, 16, 16, 0, 16 )
 } ]
 1/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=100]
+extents = Vector2( 43.2786, 61.9639 )
+
 [node name="LevelOne" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="UndergroundBackground" type="TileMap" parent="."]
 modulate = Color( 0.6, 0.6, 0.6, 1 )
@@ -1040,3 +1045,14 @@ position = Vector2( 79.6951, 17.9465 )
 position = Vector2( 24, 20.6955 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="Areas" type="Node2D" parent="."]
+
+[node name="EndOfLevel" type="Area2D" parent="Areas"]
+position = Vector2( 2396.37, -100.794 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/EndOfLevel"]
+position = Vector2( 68.9995, 19.3489 )
+shape = SubResource( 100 )
+
+[connection signal="area_entered" from="Areas/EndOfLevel" to="." method="_on_EndOfLevel_area_entered"]
