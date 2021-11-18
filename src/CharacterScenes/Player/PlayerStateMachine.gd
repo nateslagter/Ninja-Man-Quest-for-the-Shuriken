@@ -1,4 +1,4 @@
-extends "res://src/StateMachines/State.gd"
+extends "res://src/StateMachineInterface/State.gd"
 
 onready var animation_player = get_node("../AnimationPlayer")
 onready var damage_player = get_node("../DamageAnimation")
@@ -39,8 +39,9 @@ func get_input(delta : float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		parent.attack()
 	if Input.is_action_just_pressed("dodge_backwards"):
-		state = States.DODGING
-		_enter_state(state)
+		if parent.is_on_floor():
+			state = States.DODGING
+			_enter_state(state)
 	_switch_direction()
 
 
