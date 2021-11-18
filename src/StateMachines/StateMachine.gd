@@ -16,9 +16,16 @@ func _ready() -> void:
 
 
 func _logic(delta : float) -> void:
-	if state != States.ATTACKING or state != States.DODGING or state != States.KNOCKBACK:
+	if [States.KNOCKBACK,States.DODGING].has(state):
+		pass
+	else:
 		get_input(delta)
+		apply_gravity(delta)
+		parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 
+func apply_gravity(delta : float) -> void:
+	if !parent.is_on_floor():
+		parent.velocity.y += parent.GRAVITY * delta
 
 func get_input(delta : float) -> void:
 	parent.velocity.x = 0
@@ -34,10 +41,7 @@ func get_input(delta : float) -> void:
 	if Input.is_action_just_pressed("dodge_backwards"):
 		state = States.DODGING
 		_enter_state(state)
-	if !parent.is_on_floor():
-		parent.velocity.y += parent.GRAVITY * delta
 	_switch_direction()
-	parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 
 
 func _switch_direction() -> void:
@@ -52,7 +56,7 @@ func _switch_direction() -> void:
 			slide_velocity = Vector2(-2500,0)
 
 
-func _transition(_delta : float):
+func _transition(delta : float):
 	match state:
 		States.IDLE:
 			if jumping == true:
@@ -89,6 +93,9 @@ func _transition(_delta : float):
 				parent.position.x -= 8
 		States.KNOCKBACK:
 			parent.position.x += knockback_direction
+			parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
+			apply_gravity(delta)
+			
 
 
 func _enter_state(state) -> void:
@@ -108,11 +115,9 @@ func _enter_state(state) -> void:
 			damage_player.play("Damaged")
 			if parent.global_position.x <= enemy_body.global_position.x:
 				knockback_direction = -2
-				print("1")
 			elif parent.global_position.x > enemy_body.global_position.x:
 				knockback_direction =  2
-				print("2")
-			parent.velocity.y = parent.JUMP_SPEED / 1.5
+			parent.velocity.y += parent.JUMP_SPEED
 
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
