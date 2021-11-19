@@ -21,7 +21,7 @@ func _logic(delta : float) -> void:
 	else:
 		get_input(delta)
 		apply_gravity(delta)
-		parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
+	parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 
 func apply_gravity(delta : float) -> void:
 	if !parent.is_on_floor():
