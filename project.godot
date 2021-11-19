@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/CharacterScenes/Boss/Boss.gd"
 }, {
-"base": "Reference",
+"base": "Area2D",
 "class": "Collectible",
 "language": "GDScript",
 "path": "res://src/LevelScenes/Collectible/Collectible.gd"
@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="NM:QFTS (Iteration 1)"
-run/main_scene="res://src/LevelScenes/MenuScenes/mainMenu.tscn"
+run/main_scene="res://src/LevelScenes/MenuScenes/mm.tscn"
 config/icon="res://icon.png"
 
 [autoload]
