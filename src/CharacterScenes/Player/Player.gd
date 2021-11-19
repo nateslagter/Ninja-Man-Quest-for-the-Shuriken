@@ -23,8 +23,10 @@ func _on_Area2D_body_entered(body : Node2D) -> void:
 		$InvincibilityTimer.start()
 		emit_signal("player_hit",body)
 		if Globals.health == 0:
+			$SceneTransition/AnimationPlayer.play("SweepIn")
+			yield($SceneTransition/AnimationPlayer, "animation_finished")
 			queue_free()
-			if get_tree().change_scene("res://src/levels/gameOverLoss.tscn") != OK:
+			if get_tree().change_scene("res://src/LevelAssets/MenuScenes/gameOverLoss.tscn") != OK:
 				print ("An unexpected error occured while trying to switch to gameOverLoss scene")
 
 
