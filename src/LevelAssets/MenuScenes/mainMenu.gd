@@ -1,6 +1,5 @@
 extends Control
 
-
 func _on_PlayButton_pressed() -> void:
 	Globals.score = 0
 	Globals.health = 3
