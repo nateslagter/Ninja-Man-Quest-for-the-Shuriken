@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
-"class": "AttackState",
-"language": "GDScript",
-"path": "res://example/src/Enemy/AttackState.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Boss",
 "language": "GDScript",
@@ -29,47 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/CharacterScenes/Enemy/Enemy.gd"
 }, {
-"base": "",
-"class": "IdleState",
-"language": "GDScript",
-"path": "res://example/src/Enemy/IdleState.gd"
-}, {
-"base": "",
-"class": "PatrolState",
-"language": "GDScript",
-"path": "res://example/src/Enemy/PatrolState.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/CharacterScenes/Player/Player.gd"
-}, {
-"base": "Resource",
-"class": "ProxyState",
-"language": "GDScript",
-"path": "res://example/src/Enemy/ProxyState.gd"
-}, {
-"base": "Resource",
-"class": "StateMachine",
-"language": "GDScript",
-"path": "res://addons/fsm/StateMachine.gd"
-}, {
-"base": "Resource",
-"class": "StateMachineFactory",
-"language": "GDScript",
-"path": "res://addons/fsm/StateMachineFactory.gd"
 } ]
 _global_script_class_icons={
-"AttackState": "",
 "Boss": "",
 "Collectible": "",
 "Enemy": "",
-"IdleState": "",
-"PatrolState": "",
-"Player": "",
-"ProxyState": "",
-"StateMachine": "",
-"StateMachineFactory": ""
+"Player": ""
 }
 
 [application]
