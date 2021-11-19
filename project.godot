@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/LevelAssets/Collectible/Collectible.gd"
 }, {
-"base": "Reference",
+"base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://src/CharacterScenes/Enemy/Enemy.gd"
