@@ -26,7 +26,7 @@ func _on_Area2D_body_entered(body : Node2D) -> void:
 			$SceneTransition/AnimationPlayer.play("SweepIn")
 			yield($SceneTransition/AnimationPlayer, "animation_finished")
 			queue_free()
-			if get_tree().change_scene("res://src/LevelScenes/MenuScenes/gameOverLoss.tscn") != OK:
+			if get_tree().change_scene("res://src/LevelScenes/MenuScenes/GameOverLoss.tscn") != OK:
 				print ("An unexpected error occured while trying to switch to gameOverLoss scene")
 
 
