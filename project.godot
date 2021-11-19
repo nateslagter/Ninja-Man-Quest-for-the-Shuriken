@@ -14,10 +14,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/CharacterScenes/Boss/Boss.gd"
 }, {
-"base": "Area2D",
+"base": "Reference",
 "class": "Collectible",
 "language": "GDScript",
-"path": "res://src/LevelAssets/Collectible/Collectible.gd"
+"path": "res://src/LevelScenes/Collectible/Collectible.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
@@ -39,12 +39,12 @@ _global_script_class_icons={
 [application]
 
 config/name="NM:QFTS (Iteration 1)"
-run/main_scene="res://src/LevelAssets/MenuScenes/mainMenu.tscn"
+run/main_scene="res://src/LevelScenes/MenuScenes/mainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://src/LevelAssets/Globals/Globals.gd"
+Globals="*res://src/LevelScenes/Globals/Globals.gd"
 
 [display]
 

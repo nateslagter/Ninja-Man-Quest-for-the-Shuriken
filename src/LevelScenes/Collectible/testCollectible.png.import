@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/transition.png-1b44334f5719300272933c272a73310c.stex"
+path="res://.import/testCollectible.png-be9d2ec776676c4997724c53900ed498.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/LevelAssets/MenuScenes/transition.png"
-dest_files=[ "res://.import/transition.png-1b44334f5719300272933c272a73310c.stex" ]
+source_file="res://src/LevelScenes/Collectible/testCollectible.png"
+dest_files=[ "res://.import/testCollectible.png-be9d2ec776676c4997724c53900ed498.stex" ]
 
 [params]
 
