@@ -88,6 +88,7 @@ func _transition(delta : float):
 			elif parent.velocity.y < 0:
 				return States.JUMPING
 		States.DODGING:
+			parent.velocity.x = 0
 			if sprite.flip_h:
 				parent.position.x += 8
 			else:
