@@ -34,7 +34,6 @@ func _transition(delta : float) -> void:
 			parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 			apply_gravity(delta)
 		States.RUNNING:
-			print(parent)
 			if parent.global_position.x <= player_body.global_position.x:
 				parent.velocity.x = 100
 			elif parent.global_position.x > player_body.global_position.x:
