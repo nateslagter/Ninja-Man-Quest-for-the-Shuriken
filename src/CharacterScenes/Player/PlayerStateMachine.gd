@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func _logic(delta : float) -> void:
-	if [States.KNOCKBACK,States.DODGING].has(state):
+	if state == States.KNOCKBACK or state == States.DODGING:
 		pass
 	else:
 		get_input(delta)
