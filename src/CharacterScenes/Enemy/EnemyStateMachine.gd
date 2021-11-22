@@ -5,8 +5,8 @@ onready var sprite = get_node("../Sprite")
 
 var waiting : bool = true
 var knockback_direction : float
-var player_health = Globals.health
-var player_body
+var player_health : int = Globals.health
+var player_body = Area2D
 
 
 func _ready() -> void:
@@ -40,7 +40,7 @@ func _transition(delta : float) -> void:
 				parent.velocity.x = -100
 
 			
-func _enter_state(state) -> void:
+func _enter_state(state : int) -> void:
 	match state:
 		States.IDLE:
 			parent.velocity.x = 0

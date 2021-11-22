@@ -2,7 +2,6 @@ class_name Enemy
 extends KinematicBody2D
 
 signal enemy_hit(area)
-const gravity := 700
 
 var velocity := Vector2(100,0)
 var health := 2

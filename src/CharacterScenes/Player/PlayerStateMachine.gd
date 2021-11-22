@@ -8,7 +8,7 @@ onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
 var attacking := false
 var jumping := false
 var slide_velocity = Vector2(-2500,0)
-var enemy_body 
+var enemy_body : Area2D
 var knockback_direction : float
 
 func _ready() -> void:
@@ -23,11 +23,13 @@ func _logic(delta : float) -> void:
 		apply_gravity(delta)
 	parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 
+
 func apply_gravity(delta : float) -> void:
 	if !parent.is_on_floor():
 		parent.velocity.y += parent.GRAVITY * delta
 
-func get_input(delta : float) -> void:
+
+func get_input(_delta : float) -> void:
 	parent.velocity.x = 0
 	if Input.is_action_pressed("move_left"):
 		parent.velocity.x -= parent.RUN_SPEED
@@ -99,8 +101,7 @@ func _transition(delta : float):
 			apply_gravity(delta)
 			
 
-
-func _enter_state(state) -> void:
+func _enter_state(state : int) -> void:
 	match state:
 		States.IDLE:
 			animation_player.play("Idle")
