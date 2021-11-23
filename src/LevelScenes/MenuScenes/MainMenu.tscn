@@ -77,7 +77,7 @@ text = "D or RIGHT = Run Right
 A or LEFT = Run Left
 SPACE = jump
 W or UP = Attack
-S or DOWN = Dodge (1.5 second Cooldown)"
+S or DOWN = Dodge"
 __meta__ = {
 "_edit_use_anchors_": false
 }
