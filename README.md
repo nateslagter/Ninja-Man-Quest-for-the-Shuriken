@@ -6,11 +6,19 @@ Second iteration of CS315 Final Project by Landon Hammond and Nate Slagter
 * Move left: "left" or "a"  
 * Jump: "spacebar"
 * Attack: "up" or "w"
-* Dodge: "down" or "s" (1.5 second cooldown)
+* Dodge: "down" or "s"
 ## Project Report
 ### Team Reflection
 
-TODO
+The second iteration of the final project was a much needed change of form for us.
+The things that worked well in iteration one still apply, such as strong and civil communication about game functionality and design choice, as well as the ability to use Git to our mutual advantage.
+It was clear that the way we handled time management in iteration one needed to change, and we feel as though we are trending in the correct direction. 
+We scaled back our expectations slightly and decided together what was truly most important to focus on this iteration and worked in a more timely manor to meet our better chosen goals.
+For example, we decided first and foremost that the leftover bugs from iteration one were the first things to tackle, and set a deadline for those bugfixes well before the deadline of the project. 
+This gave us time to fix the past mistakes and allow us ample time to focus on the new aspects of iteration two.
+This worked well for us as we did not have to spend the entire night before class cramming to get work done that should have been done long before, and we feel happier about the progress we made too.
+We ran into a few roadblocks along the way, such as the knockback system, and there are still some edges that need smoothening, but we look forward to building further upon the stronger foundation we have constructed throughout iteration two.
+While the style guide still remains a worry for us as we continue on in our project, we are referencing it more and more in hopes that we do not let any errors slip through.
 
 
 ### Team-Evaluation
@@ -35,7 +43,7 @@ TODO
 - [X] ⭐ Incorporate parallax background scrolling
 - [ ] ⭐ Use paper doll animations
 - [ ] ⭐ Use an <code>AnimationTree</code> with either blend spaces (3D) or an animation state machine (2D)
-- [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
+- [X] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
 - [ ] ⭐ Support two of the following: touch input, mouse/keyboard input, and gamepad input
 - [ ] ⭐ Allow the user to control the volume of music and sound effects independently.
 - [ ] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
@@ -47,9 +55,11 @@ TODO
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
 
 ***
-With the completion of the README and tagging for release, we believe we have fully completed everything needed to earn an A for iteration one of the final project.
+With the completion of the README and tagging for release, we believe we have fully completed everything needed to earn an A for iteration two of the final project.
 ## Third-Party Assets
 [Kaushan Script](https://fonts.google.com/specimen/Kaushan+Script?query=kaushan), licensed under [SIL Open Font License (OFL)](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
+
+[Kauzz Pixel Forest](https://kauzz.net/2020/01/26/pixelforest/), licensing terms can be found at the bottom of the [Kauzz.net main page](https://kauzz.net/).
 
 All other assets created and owned by Landon Hammond*
 
