@@ -7,7 +7,7 @@ Second iteration of CS315 Final Project by Landon Hammond and Nate Slagter.
 * Jump: "spacebar"
 * Attack: "up" or "w"
 * Dodge: "down" or "s"
-* The win condition for iteration 2 is to make it to the end of the level, located at the top right of the map.
+* The win condition for iteration 2 is to make it to the end of the level, located at the top right.
 ## Project Report
 ### Team Reflection
 
