@@ -1,5 +1,5 @@
 # Ninja Man: Quest for the Shuriken, Iteration 2
-Second iteration of CS315 Final Project by Landon Hammond and Nate Slagter
+Second iteration of CS315 Final Project by Landon Hammond and Nate Slagter.
 
 ### How to Play: 
 * Move right: "right" or "d"  
@@ -7,6 +7,7 @@ Second iteration of CS315 Final Project by Landon Hammond and Nate Slagter
 * Jump: "spacebar"
 * Attack: "up" or "w"
 * Dodge: "down" or "s"
+* The win condition for iteration 2 is to make it to the end of the level, located at the top right of the map.
 ## Project Report
 ### Team Reflection
 
