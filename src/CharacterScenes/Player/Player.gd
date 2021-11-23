@@ -4,7 +4,7 @@ extends KinematicBody2D
 signal player_hit(body)
 
 const RUN_SPEED := 200
-const JUMP_SPEED := -300
+const JUMP_SPEED := -320
 const GRAVITY := 700
 
 var damageable := true
@@ -23,11 +23,11 @@ func _on_Area2D_body_entered(body : Node2D) -> void:
 		$InvincibilityTimer.start()
 		emit_signal("player_hit",body)
 		if Globals.health == 0:
+			$Sprite.hide()
 			$SceneTransition/AnimationPlayer.play("SweepIn")
 			yield($SceneTransition/AnimationPlayer, "animation_finished")
-			queue_free()
-			if get_tree().change_scene("res://src/LevelScenes/MenuScenes/GameOverLoss.tscn") != OK:
-				print ("An unexpected error occured while trying to switch to gameOverLoss scene")
+			if get_tree().change_scene("res://src/LevelScenes/MenuScenes/GameOverLose.tscn") != OK:
+				print ("An unexpected error occured while trying to switch to gameOverLose scene")
 
 
 func _on_InvincibilityTimer_timeout() -> void:
