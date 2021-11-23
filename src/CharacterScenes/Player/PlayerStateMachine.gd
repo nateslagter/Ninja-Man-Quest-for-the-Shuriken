@@ -1,15 +1,15 @@
 extends "res://src/StateMachineInterface/State.gd"
 
-onready var animation_player = get_node("../AnimationPlayer")
-onready var damage_player = get_node("../DamageAnimation")
-onready var sprite = get_node("../Sprite")
-onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
-
 var attacking := false
 var jumping := false
 var slide_velocity = Vector2(-2500,0)
 var enemy_body : Area2D
 var knockback_direction : float
+
+onready var animation_player = get_node("../AnimationPlayer")
+onready var damage_player = get_node("../DamageAnimation")
+onready var sprite = get_node("../Sprite")
+onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
 
 func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
@@ -59,7 +59,7 @@ func _switch_direction() -> void:
 			slide_velocity = Vector2(-2500,0)
 
 
-func _transition(delta : float):
+func _transition(delta : float) -> int:
 	match state:
 		States.IDLE:
 			if jumping == true:
@@ -138,6 +138,7 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 		else:
 			state = States.IDLE
 			_enter_state(state)
+			
 			
 func _create_knockback(body) -> void:
 	enemy_body = body

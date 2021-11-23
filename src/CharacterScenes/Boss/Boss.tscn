@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/CharacterScenes/Boss/boss.png" type="Texture" id=1]
-[ext_resource path="res://src/CharacterScenes/Boss/Boss.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Attack"
@@ -76,7 +75,6 @@ radius = 19.2699
 [node name="Boss" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

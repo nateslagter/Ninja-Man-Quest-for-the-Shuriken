@@ -22,18 +22,22 @@ func _physics_process(delta):
 		if transition != null:
 			set_state(transition)
 			
-
+			
 func _logic(_delta : float) -> void:
 	pass
+
 
 func _transition(_delta : float):
 	return null
 	
+	
 func _enter_state(_new_state) -> void:
 	pass
 	
+	
 func _exit_state(_new_state) -> void:
 	pass
+
 
 func set_state(new_state) -> void:
 	state = new_state

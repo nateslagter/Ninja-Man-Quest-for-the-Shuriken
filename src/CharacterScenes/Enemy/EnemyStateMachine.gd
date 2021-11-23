@@ -1,12 +1,12 @@
 extends "res://src/StateMachineInterface/State.gd"
 
-onready var animation_player = get_node("../AnimationPlayer")
-onready var sprite = get_node("../Sprite")
-
 var waiting : bool = true
 var knockback_direction : float
 var player_health : int = Globals.health
 var player_body = Area2D
+
+onready var animation_player = get_node("../AnimationPlayer")
+onready var sprite = get_node("../Sprite")
 
 
 func _ready() -> void:
