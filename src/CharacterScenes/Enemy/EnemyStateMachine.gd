@@ -11,8 +11,8 @@ onready var sprite = get_node("../Sprite")
 
 func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
-	
-	
+
+
 func _check_player_health() -> void:
 	if Globals.health != player_health:
 		state = States.IDLE
@@ -25,7 +25,7 @@ func _logic(delta : float) -> void:
 	parent.move_and_slide(parent.velocity,Vector2.UP)
 	_switch_direction()
 	_check_player_health()
-		
+
 
 func _transition(delta : float) -> void:
 	match state:
@@ -39,7 +39,7 @@ func _transition(delta : float) -> void:
 			elif parent.global_position.x > player_body.global_position.x:
 				parent.velocity.x = -100
 
-			
+
 func _enter_state(state : int) -> void:
 	match state:
 		States.IDLE:
@@ -53,14 +53,14 @@ func _enter_state(state : int) -> void:
 			elif parent.global_position.x > player_body.global_position.x:
 				knockback_direction =  2.5
 			parent.velocity.y += -150
-			
-			
+
+
 func _switch_direction() -> void:
 	if parent.velocity.x < 0:
 		sprite.set_flip_h(true)
 	if parent.velocity.x > 0:
 		sprite.set_flip_h(false)
-			
+
 
 func apply_gravity(delta : float) -> void:
 	if !parent.is_on_floor():

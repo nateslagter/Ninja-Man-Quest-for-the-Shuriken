@@ -19,4 +19,3 @@ func _on_Area2D_area_entered(area : Area2D) -> void:
 
 func _on_Area2D_area_exited(_area : Area2D) -> void:
 	attacked = false
-
