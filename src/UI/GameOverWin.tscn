@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/font/KaushanScript-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://src/LevelScenes/MenuScenes/GameOverWin.gd" type="Script" id=2]
-[ext_resource path="res://src/LevelScenes/MenuScenes/SceneTransition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Common/font/KaushanScript-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/UI/GameOverWin.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/SceneTransition.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
