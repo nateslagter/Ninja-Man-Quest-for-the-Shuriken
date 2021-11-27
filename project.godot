@@ -9,23 +9,17 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
-"class": "Collectible",
-"language": "GDScript",
-"path": "res://src/LevelScenes/Collectible/Collectible.gd"
-}, {
-"base": "KinematicBody2D",
+"base": "Reference",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://src/CharacterScenes/Enemy/Enemy.gd"
+"path": "res://Project/CharacterScenes/Enemy/Enemy.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://src/CharacterScenes/Player/Player.gd"
+"path": "res://Project/CharacterScenes/Player/Player.gd"
 } ]
 _global_script_class_icons={
-"Collectible": "",
 "Enemy": "",
 "Player": ""
 }
@@ -33,12 +27,12 @@ _global_script_class_icons={
 [application]
 
 config/name="NM:QFTS (Iteration 2)"
-run/main_scene="res://src/UI/MainMenu.tscn"
+run/main_scene="res://Project/UI/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://src/Autoload/Globals.gd"
+Globals="*res://Project/Autoload/Globals.gd"
 
 [display]
 
