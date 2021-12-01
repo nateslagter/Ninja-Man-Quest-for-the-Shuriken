@@ -9,7 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "Area2D",
+"class": "Collectible",
+"language": "GDScript",
+"path": "res://Project/LevelScenes/Collectible/Collectible.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://Project/CharacterScenes/Enemy/Enemy.gd"
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://Project/CharacterScenes/Player/Player.gd"
 } ]
 _global_script_class_icons={
+"Collectible": "",
 "Enemy": "",
 "Player": ""
 }
