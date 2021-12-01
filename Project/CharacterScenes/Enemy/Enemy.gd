@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 signal enemy_hit(area)
 
-var velocity := Vector2(100,0)
+var velocity := Vector2(0,0)
 var health := 2
 var attacked := false
 
@@ -19,3 +19,5 @@ func _on_Area2D_area_entered(area : Area2D) -> void:
 
 func _on_Area2D_area_exited(_area : Area2D) -> void:
 	attacked = false
+
+

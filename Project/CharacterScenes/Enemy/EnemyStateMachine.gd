@@ -7,6 +7,7 @@ var player_body = Area2D
 
 onready var animation_player = get_node("../AnimationPlayer")
 onready var sprite = get_node("../Sprite")
+onready var knockback_timer = get_node("../KnockbackTimer")
 
 
 func _ready() -> void:
@@ -33,11 +34,6 @@ func _transition(delta : float) -> void:
 			parent.position.x += knockback_direction
 			parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 			apply_gravity(delta)
-		States.RUNNING:
-			if parent.global_position.x <= player_body.global_position.x:
-				parent.velocity.x = 100
-			elif parent.global_position.x > player_body.global_position.x:
-				parent.velocity.x = -100
 
 
 func _enter_state(state : int) -> void:
@@ -48,6 +44,7 @@ func _enter_state(state : int) -> void:
 		States.RUNNING:
 			animation_player.play("Walk")
 		States.KNOCKBACK:
+			knockback_timer.start()
 			if parent.global_position.x <= player_body.global_position.x:
 				knockback_direction = -2.5
 			elif parent.global_position.x > player_body.global_position.x:
@@ -74,16 +71,6 @@ func _on_Enemy_enemy_hit(body : Area2D) -> void:
 	_enter_state(state)
 
 
-func _on_PlayerDetectionSquare_area_entered(area : Area2D) -> void:
-	state = States.RUNNING
-	_enter_state(state)
-	player_body = area
-
-
-func _on_PlayerDetectionSquare_area_exited(_area : Area2D) -> void:
+func _on_KnockbackTimer_timeout():
 	state = States.IDLE
 	_enter_state(state)
-
-
-func _on_PlayerAttackRange_area_entered(_area : Area2D) -> void:
-	animation_player.play("Attack")
