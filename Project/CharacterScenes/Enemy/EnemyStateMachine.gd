@@ -4,6 +4,7 @@ var waiting : bool = true
 var knockback_direction : float
 var player_health : int = Globals.health
 var player_body = Area2D
+var velocity := Vector2(0,0)
 
 onready var animation_player = get_node("../AnimationPlayer")
 onready var sprite = get_node("../Sprite")
@@ -20,11 +21,11 @@ func _ready() -> void:
 func _logic(delta : float) -> void:
 	if front_detector.is_colliding():
 		if front_detector.get_collider().name == "Player":
-			state = States.RUNNING
-			_enter_state(state)
-		
+			velocity = Vector2(100,velocity.y)
+		elif back_detector.get_collider().name == "Player":
+			velocity = Vector2(100,velocity.y)
 	apply_gravity(delta)
-	parent.move_and_slide(parent.velocity,Vector2.UP)
+	parent.move_and_slide(velocity,Vector2.UP)
 	_switch_direction()
 	_check_player_health()
 
@@ -36,18 +37,24 @@ func _check_player_health() -> void:
 		player_health = Globals.health
 
 
-func _transition(delta : float) -> void:
+func _transition(delta : float):
 	match state:
 		States.KNOCKBACK:
 			parent.position.x += knockback_direction
 			parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
 			apply_gravity(delta)
+		States.IDLE:
+			if velocity.x != 0:
+				return States.RUNNING
+		States.RUNNING:
+			if velocity.x == 0:
+				return States.IDLE
 
 
 func _enter_state(state : int) -> void:
 	match state:
 		States.IDLE:
-			parent.velocity.x = 0
+			velocity.x = 0
 			animation_player.play("Idle")
 		States.RUNNING:
 			animation_player.play("Walk")
@@ -57,24 +64,24 @@ func _enter_state(state : int) -> void:
 				knockback_direction = -2.5
 			elif parent.global_position.x > player_body.global_position.x:
 				knockback_direction =  2.5
-			parent.velocity.y += -150
+			velocity.y += -150
 
 
 func _switch_direction() -> void:
-	if parent.velocity.x < 0:
+	if velocity.x < 0:
 		sprite.set_flip_h(true)
-	if parent.velocity.x > 0:
+	if velocity.x > 0:
 		sprite.set_flip_h(false)
 
 
 func apply_gravity(delta : float) -> void:
 	if !parent.is_on_floor():
-		parent.velocity.y += 700 * delta
+		velocity.y += 700 * delta
 
 
 func _on_Enemy_enemy_hit(body : Area2D) -> void:
 	player_body = body
-	parent.velocity = Vector2(0,0)
+	velocity = Vector2(0,0)
 	state = States.KNOCKBACK
 	_enter_state(state)
 
