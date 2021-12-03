@@ -9,8 +9,7 @@ var velocity := Vector2(0,0)
 onready var animation_player = get_node("../AnimationPlayer")
 onready var sprite = get_node("../Sprite")
 onready var knockback_timer = get_node("../KnockbackTimer")
-onready var front_detector = get_node("../FrontDetector")
-onready var back_detector = get_node("../BackDetector")
+onready var player_detector = get_node("../PlayerDetector")
 onready var attack_range_detector = get_node("../AttackRangeDetector")
 
 
@@ -19,12 +18,11 @@ func _ready() -> void:
 
 
 func _logic(delta : float) -> void:
-	if front_detector.is_colliding():
-		if front_detector.get_collider().name == "Player":
-			velocity = Vector2(100,velocity.y)
-	elif back_detector.is_colliding():
-		if back_detector.get_collider().name == "Player":
-			velocity = Vector2(-100,velocity.y)
+	if player_detector.is_colliding():
+		if player_detector.get_collider().position.x < parent.position.x:
+			velocity.x = -100
+		elif player_detector.get_collider().position.x > parent.position.x:
+			velocity.x = 100
 	else:
 		velocity = Vector2(0,velocity.y)
 	apply_gravity(delta)
@@ -44,14 +42,13 @@ func _transition(delta : float):
 	match state:
 		States.KNOCKBACK:
 			parent.position.x += knockback_direction
-			velocity = parent.move_and_slide(velocity,Vector2.UP)
-			apply_gravity(delta)
 		States.IDLE:
 			if velocity.x != 0:
 				return States.RUNNING
 		States.RUNNING:
-			if velocity.x == 0:
-				return States.IDLE
+			if state != States.KNOCKBACK:
+				if velocity.x == 0:
+					return States.IDLE
 
 
 func _enter_state(state : int) -> void:
@@ -62,6 +59,7 @@ func _enter_state(state : int) -> void:
 		States.RUNNING:
 			animation_player.play("Walk")
 		States.KNOCKBACK:
+			velocity.x = 0
 			knockback_timer.start()
 			if parent.global_position.x <= player_body.global_position.x:
 				knockback_direction = -2.5
