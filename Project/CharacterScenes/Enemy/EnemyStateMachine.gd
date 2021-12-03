@@ -22,8 +22,11 @@ func _logic(delta : float) -> void:
 	if front_detector.is_colliding():
 		if front_detector.get_collider().name == "Player":
 			velocity = Vector2(100,velocity.y)
-		elif back_detector.get_collider().name == "Player":
-			velocity = Vector2(100,velocity.y)
+	elif back_detector.is_colliding():
+		if back_detector.get_collider().name == "Player":
+			velocity = Vector2(-100,velocity.y)
+	else:
+		velocity = Vector2(0,velocity.y)
 	apply_gravity(delta)
 	parent.move_and_slide(velocity,Vector2.UP)
 	_switch_direction()
@@ -41,7 +44,7 @@ func _transition(delta : float):
 	match state:
 		States.KNOCKBACK:
 			parent.position.x += knockback_direction
-			parent.velocity = parent.move_and_slide(parent.velocity,Vector2.UP)
+			velocity = parent.move_and_slide(velocity,Vector2.UP)
 			apply_gravity(delta)
 		States.IDLE:
 			if velocity.x != 0:
