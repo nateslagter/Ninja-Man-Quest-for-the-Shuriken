@@ -93,6 +93,18 @@ anims/Walk = SubResource( 5 )
 wait_time = 0.3
 one_shot = true
 
+[node name="FrontDetector" type="RayCast2D" parent="."]
+position = Vector2( -4.62493, 22.0735 )
+rotation = 4.71239
+enabled = true
+
+[node name="BackDetector" type="RayCast2D" parent="."]
+position = Vector2( -23.1246, 22.494 )
+rotation = 1.5708
+enabled = true
+
+[node name="AttackRangeDetector" type="RayCast2D" parent="."]
+
 [connection signal="enemy_hit" from="." to="StateMachine" method="_on_Enemy_enemy_hit"]
 [connection signal="area_entered" from="EnemyHitbox" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="EnemyHitbox" to="." method="_on_Area2D_area_exited"]

@@ -8,10 +8,25 @@ var player_body = Area2D
 onready var animation_player = get_node("../AnimationPlayer")
 onready var sprite = get_node("../Sprite")
 onready var knockback_timer = get_node("../KnockbackTimer")
+onready var front_detector = get_node("../FrontDetector")
+onready var back_detector = get_node("../BackDetector")
+onready var attack_range_detector = get_node("../AttackRangeDetector")
 
 
 func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
+
+
+func _logic(delta : float) -> void:
+	if front_detector.is_colliding():
+		if front_detector.get_collider().name == "Player":
+			state = States.RUNNING
+			_enter_state(state)
+		
+	apply_gravity(delta)
+	parent.move_and_slide(parent.velocity,Vector2.UP)
+	_switch_direction()
+	_check_player_health()
 
 
 func _check_player_health() -> void:
@@ -19,13 +34,6 @@ func _check_player_health() -> void:
 		state = States.IDLE
 		_enter_state(state)
 		player_health = Globals.health
-
-
-func _logic(delta : float) -> void:
-	apply_gravity(delta)
-	parent.move_and_slide(parent.velocity,Vector2.UP)
-	_switch_direction()
-	_check_player_health()
 
 
 func _transition(delta : float) -> void:
