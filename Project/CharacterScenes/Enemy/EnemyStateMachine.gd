@@ -44,10 +44,9 @@ func _transition(delta : float):
 			parent.position.x += knockback_direction
 		States.IDLE:
 			if velocity.x != 0:
-				return States.RUNNING
+					return States.RUNNING
 		States.RUNNING:
-			if state != States.KNOCKBACK:
-				if velocity.x == 0:
+			if velocity.x == 0:
 					return States.IDLE
 
 
@@ -59,6 +58,7 @@ func _enter_state(state : int) -> void:
 		States.RUNNING:
 			animation_player.play("Walk")
 		States.KNOCKBACK:
+			player_detector.enabled = false
 			velocity.x = 0
 			knockback_timer.start()
 			if parent.global_position.x <= player_body.global_position.x:
@@ -90,3 +90,4 @@ func _on_Enemy_enemy_hit(body : Area2D) -> void:
 func _on_KnockbackTimer_timeout():
 	state = States.IDLE
 	_enter_state(state)
+	player_detector.enabled = true

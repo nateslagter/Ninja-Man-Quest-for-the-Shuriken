@@ -90,7 +90,7 @@ anims/Idle = SubResource( 4 )
 anims/Walk = SubResource( 5 )
 
 [node name="KnockbackTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 one_shot = true
 
 [node name="PlayerDetector" type="RayCast2D" parent="."]
