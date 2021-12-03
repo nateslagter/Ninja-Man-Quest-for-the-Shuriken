@@ -3,7 +3,6 @@ extends KinematicBody2D
 
 signal enemy_hit(area)
 
-var velocity := Vector2(0,0)
 var health := 2
 var attacked := false
 
