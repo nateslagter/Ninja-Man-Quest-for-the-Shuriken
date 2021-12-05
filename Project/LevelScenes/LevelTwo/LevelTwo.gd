@@ -1,6 +1,7 @@
 extends Node2D
 
 
+
 func _on_TeleportBox_area_entered(_area):
 	Globals.health -= 1
 	if Globals.health < 1:
