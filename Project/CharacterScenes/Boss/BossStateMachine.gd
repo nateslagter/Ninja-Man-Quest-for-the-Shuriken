@@ -20,16 +20,20 @@ func _logic(delta : float) -> void:
 			velocity = Vector2(-velocity.x,velocity.y)
 			get_node("../WaitTimer").start()
 			boss_boundary_detector.scale.x *= -1
+			get_node("../AttackHitbox").scale.x *= -1
+		elif boss_boundary_detector.get_collider().is_in_group("Player"):
+			state = States.ATTACKING
+			animation_player.play("Attack")
 	_apply_gravity(delta)
 	if state == States.RUNNING:
 		parent.move_and_slide(velocity,Vector2.UP)
 	_switch_direction()
 
 	
-	
 func _apply_gravity(delta : float) -> void:
 	if !parent.is_on_floor():
 		velocity.y += 700 * delta
+
 
 func _switch_direction() -> void:
 	if velocity.x < 0:
@@ -61,5 +65,10 @@ func _enter_state(_new_state) -> void:
 	
 
 func _on_WaitTimer_timeout() -> void:
+	state = States.RUNNING
+	_enter_state(state)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
 	state = States.RUNNING
 	_enter_state(state)
