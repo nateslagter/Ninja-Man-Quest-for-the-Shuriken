@@ -15,12 +15,13 @@ func _ready() -> void:
 
 func _logic(delta : float) -> void:
 	if boss_boundary_detector.is_colliding():
-		print("colliding")
 		if boss_boundary_detector.get_collider().is_in_group("BossBoundaries"):
 			velocity = Vector2(-velocity.x,velocity.y)
 			get_node("../WaitTimer").start()
 			boss_boundary_detector.scale.x *= -1
 			get_node("../AttackHitbox").scale.x *= -1
+			state = States.IDLE
+			_enter_state(state)
 		elif boss_boundary_detector.get_collider().is_in_group("Player"):
 			state = States.ATTACKING
 			animation_player.play("Attack")
@@ -40,17 +41,6 @@ func _switch_direction() -> void:
 		sprite.set_flip_h(true)
 	if velocity.x > 0:
 		sprite.set_flip_h(false)
-		
-func _transition(_delta : float):
-	match state:
-		States.IDLE:
-			if state != States.KNOCKBACK:
-				if velocity.x != 0:
-					return States.RUNNING
-		States.RUNNING:
-			if state != States.KNOCKBACK:
-				if velocity.x == 0:
-					return States.IDLE
 	
 	
 func _enter_state(_new_state) -> void:
