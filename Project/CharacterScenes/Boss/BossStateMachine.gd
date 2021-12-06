@@ -2,24 +2,51 @@ extends "res://Project/StateMachineInterface/State.gd"
 
 onready var animation_player = get_node("../AnimationPlayer")
 onready var boss_boundary_detector = get_node("../BossBoundaryDetector")
+onready var sprite = get_node("../Sprite")
+
 
 var velocity = Vector2(100,0)
 
-func _ready():
+
+
+func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
 
-func _logic(_delta : float) -> void:
-	print(boss_boundary_detector.is_colliding())
+
+func _logic(delta : float) -> void:
 	if boss_boundary_detector.is_colliding():
+		print("colliding")
 		if boss_boundary_detector.get_collider().is_in_group("BossBoundaries"):
-			print("detected")
-		else:
-			print("colliding, not detecting area")
-	parent.position.x += 1
+			velocity = Vector2(-velocity.x,velocity.y)
+			get_node("../WaitTimer").start()
+			boss_boundary_detector.scale.x *= -1
+	_apply_gravity(delta)
+	if state == States.RUNNING:
+		parent.move_and_slide(velocity,Vector2.UP)
+	_switch_direction()
 
+	
+	
+func _apply_gravity(delta : float) -> void:
+	if !parent.is_on_floor():
+		velocity.y += 700 * delta
 
+func _switch_direction() -> void:
+	if velocity.x < 0:
+		sprite.set_flip_h(true)
+	if velocity.x > 0:
+		sprite.set_flip_h(false)
+		
 func _transition(_delta : float):
-	return null
+	match state:
+		States.IDLE:
+			if state != States.KNOCKBACK:
+				if velocity.x != 0:
+					return States.RUNNING
+		States.RUNNING:
+			if state != States.KNOCKBACK:
+				if velocity.x == 0:
+					return States.IDLE
 	
 	
 func _enter_state(_new_state) -> void:
@@ -32,9 +59,6 @@ func _enter_state(_new_state) -> void:
 			animation_player.play("Walk")
 			
 	
-	
-func _exit_state(_new_state) -> void:
-	pass
 
 func _on_WaitTimer_timeout() -> void:
 	state = States.RUNNING

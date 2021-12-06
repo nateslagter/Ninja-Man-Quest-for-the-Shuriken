@@ -870,21 +870,23 @@ shape = SubResource( 16 )
 [node name="BossBoundary1" type="Area2D" parent="." groups=[
 "BossBoundaries",
 ]]
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossBoundary1"]
-position = Vector2( 2566.27, 12.2887 )
+position = Vector2( 2544.02, 13.0387 )
 shape = SubResource( 17 )
 
 [node name="BossBoundary2" type="Area2D" parent="." groups=[
 "BossBoundaries",
 ]]
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossBoundary2"]
-position = Vector2( 2137.3, 13.1796 )
+position = Vector2( 2163.46, 9.99762 )
 shape = SubResource( 17 )
 
 [node name="Boss" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2114.43, -8.30849 )
+position = Vector2( 2388.08, 9.72273 )
 
 [connection signal="area_entered" from="TeleportBox" to="." method="_on_TeleportBox_area_entered"]
 [connection signal="area_entered" from="Killbox" to="." method="_on_Killbox_area_entered"]
