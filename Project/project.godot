@@ -9,12 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "Area2D",
 "class": "Collectible",
 "language": "GDScript",
 "path": "res://LevelScenes/Collectible/Collectible.gd"
 }, {
-"base": "Reference",
+"base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://CharacterScenes/Enemy/Enemy.gd"
