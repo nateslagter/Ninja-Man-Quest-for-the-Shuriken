@@ -12,7 +12,7 @@ extents = Vector2( 8.44524, 19.684 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Attack"
-length = 0.3
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -20,7 +20,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
+"times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 7, 8, 9 ]
@@ -99,9 +99,8 @@ rotation = 4.71239
 scale = Vector2( 1, 3 )
 enabled = true
 
-[node name="AttackRangeDetector" type="RayCast2D" parent="."]
-
 [connection signal="enemy_hit" from="." to="StateMachine" method="_on_Enemy_enemy_hit"]
 [connection signal="area_entered" from="EnemyHitbox" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="EnemyHitbox" to="." method="_on_Area2D_area_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="KnockbackTimer" to="StateMachine" method="_on_KnockbackTimer_timeout"]
