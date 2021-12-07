@@ -10,7 +10,7 @@ var velocity = Vector2(100,0)
 
 
 func _ready() -> void:
-	call_deferred("set_state",States.IDLE)
+	call_deferred("set_state",States.RUNNING)
 
 
 func _logic(delta : float) -> void:
@@ -52,13 +52,12 @@ func _enter_state(_new_state) -> void:
 		States.RUNNING:
 			animation_player.play("Walk")
 			
-	
 
 func _on_WaitTimer_timeout() -> void:
 	state = States.RUNNING
 	_enter_state(state)
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name : String) -> void:
 	state = States.RUNNING
 	_enter_state(state)
