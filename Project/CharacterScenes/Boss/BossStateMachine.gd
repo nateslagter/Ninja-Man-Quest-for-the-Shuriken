@@ -1,4 +1,4 @@
-extends "res://Project/StateMachineInterface/State.gd"
+extends "res://StateMachineInterface/State.gd"
 
 onready var animation_player = get_node("../AnimationPlayer")
 onready var boss_boundary_detector = get_node("../BossBoundaryDetector")
