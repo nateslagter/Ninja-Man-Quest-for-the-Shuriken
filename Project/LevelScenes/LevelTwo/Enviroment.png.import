@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Enviroment.png-551f1389bc1a9f0cece5ce8fe8062c0b.stex"
+path="res://.import/Enviroment.png-a03a6f539ecdba6559b38e5c537eda46.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Project/LevelScenes/LevelTwo/Enviroment.png"
-dest_files=[ "res://.import/Enviroment.png-551f1389bc1a9f0cece5ce8fe8062c0b.stex" ]
+source_file="res://LevelScenes/LevelTwo/Enviroment.png"
+dest_files=[ "res://.import/Enviroment.png-a03a6f539ecdba6559b38e5c537eda46.stex" ]
 
 [params]
 

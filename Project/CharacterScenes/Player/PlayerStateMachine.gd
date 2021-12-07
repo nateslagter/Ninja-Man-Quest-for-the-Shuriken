@@ -1,4 +1,4 @@
-extends "res://Project/StateMachineInterface/State.gd"
+extends "res://StateMachineInterface/State.gd"
 
 var attacking := false
 var jumping := false

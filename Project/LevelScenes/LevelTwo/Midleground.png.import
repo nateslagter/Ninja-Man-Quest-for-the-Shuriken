@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Midleground.png-4ccb71d2a39e3e19d949387d9845d234.stex"
+path="res://.import/Midleground.png-c5f6ad06caa1ed02d75b38dd34a20f1b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Project/LevelScenes/LevelTwo/Midleground.png"
-dest_files=[ "res://.import/Midleground.png-4ccb71d2a39e3e19d949387d9845d234.stex" ]
+source_file="res://LevelScenes/LevelTwo/Midleground.png"
+dest_files=[ "res://.import/Midleground.png-c5f6ad06caa1ed02d75b38dd34a20f1b.stex" ]
 
 [params]
 

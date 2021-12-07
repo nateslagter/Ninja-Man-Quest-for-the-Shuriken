@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/testCollectible.png-c8f584fadac9d54e2c30915839a3d163.stex"
+path="res://.import/testCollectible.png-7dd829dc8a60e8f73d364099ec961eb6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Project/LevelScenes/Collectible/testCollectible.png"
-dest_files=[ "res://.import/testCollectible.png-c8f584fadac9d54e2c30915839a3d163.stex" ]
+source_file="res://LevelScenes/Collectible/testCollectible.png"
+dest_files=[ "res://.import/testCollectible.png-7dd829dc8a60e8f73d364099ec961eb6.stex" ]
 
 [params]
 

@@ -26,7 +26,7 @@ func _on_Area2D_body_entered(body : Node2D) -> void:
 			$Sprite.hide()
 			$SceneTransition/AnimationPlayer.play("SweepIn")
 			yield($SceneTransition/AnimationPlayer, "animation_finished")
-			if get_tree().change_scene("res://Project/UI/GameOverLose.tscn") != OK:
+			if get_tree().change_scene("res://UI/GameOverLose.tscn") != OK:
 				print ("An unexpected error occured while trying to switch to gameOverLose scene")
 
 

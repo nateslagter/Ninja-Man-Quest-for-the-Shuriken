@@ -5,5 +5,5 @@ func _on_PlayButton_pressed() -> void:
 	Globals.health = 3
 	$SceneTransition/AnimationPlayer.play("SweepIn")
 	yield($SceneTransition/AnimationPlayer, "animation_finished")
-	if get_tree().change_scene("res://Project/LevelScenes/LevelOne/LevelOne.tscn") != OK:
+	if get_tree().change_scene("res://LevelScenes/LevelOne/LevelOne.tscn") != OK:
 		print ("An unexpected error occured while trying to switch to LevelOne scene")

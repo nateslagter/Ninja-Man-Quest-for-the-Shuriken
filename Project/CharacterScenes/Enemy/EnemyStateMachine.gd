@@ -1,4 +1,4 @@
-extends "res://Project/StateMachineInterface/State.gd"
+extends "res://StateMachineInterface/State.gd"
 
 var waiting : bool = true
 var knockback_direction : float
@@ -38,7 +38,7 @@ func _check_player_health() -> void:
 		player_health = Globals.health
 
 
-func _transition(delta : float):
+func _transition(_delta : float):
 	match state:
 		States.KNOCKBACK:
 			parent.position.x += knockback_direction
