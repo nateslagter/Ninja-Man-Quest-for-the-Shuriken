@@ -9,3 +9,5 @@ func _on_Hitbox_area_entered(area : Area2D) -> void:
 		print("damaged")
 		health -= 1
 		$DamageAnimation.play("Damaged")
+		if health == 0:
+			queue_free()
