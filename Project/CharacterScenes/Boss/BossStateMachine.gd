@@ -8,7 +8,6 @@ onready var sprite = get_node("../Sprite")
 var velocity = Vector2(100,0)
 
 
-
 func _ready() -> void:
 	call_deferred("set_state",States.RUNNING)
 
