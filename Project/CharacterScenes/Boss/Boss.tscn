@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Project/CharacterScenes/Boss/boss.png" type="Texture" id=1]
+[ext_resource path="res://Project/CharacterScenes/Boss/Boss.gd" type="Script" id=2]
+[ext_resource path="res://Project/CharacterScenes/Boss/BossStateMachine.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Attack"
@@ -63,30 +65,55 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 21, 22, 23, 24, 25 ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "Damaged"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8.71383, 21.5167 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 8.60138, 21.0811 )
+extents = Vector2( 8.60138, 22.0584 )
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 19.2699
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8.62142, 20.5655 )
+
 [node name="Boss" type="KinematicBody2D"]
-collision_layer = 2
+collision_layer = 3
 collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="BossStateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 8
-frame = 7
+frame = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 anims/Attack = SubResource( 1 )
 anims/Idle = SubResource( 2 )
 anims/Walk = SubResource( 3 )
+
+[node name="DamageAnimation" type="AnimationPlayer" parent="."]
+anims/Damaged = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.168175, 20.4109 )
@@ -99,18 +126,27 @@ position = Vector2( -0.196651, 20.8404 )
 shape = SubResource( 5 )
 
 [node name="WaitTimer" type="Timer" parent="."]
-wait_time = 5.0
-
-[node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
+one_shot = true
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2( 15.25, 38.5 )
+position = Vector2( 15.7573, 44.7052 )
 shape = SubResource( 6 )
 disabled = true
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0485191, 21.5526 )
+shape = SubResource( 7 )
+
+[node name="BossBoundaryDetector" type="RayCast2D" parent="."]
+position = Vector2( 0, 20.392 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 4
+collide_with_areas = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="BossStateMachine" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
-[connection signal="timeout" from="WaitTimer" to="." method="_on_WaitTimer_timeout"]
+[connection signal="timeout" from="WaitTimer" to="BossStateMachine" method="_on_WaitTimer_timeout"]

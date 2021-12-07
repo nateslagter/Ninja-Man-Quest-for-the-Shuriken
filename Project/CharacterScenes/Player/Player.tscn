@@ -132,7 +132,9 @@ extents = Vector2( 7.83004, 19.8629 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7.86566, 21.4016 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
 position = Vector2( -100, 0 )
 collision_mask = 0
 script = ExtResource( 2 )
@@ -157,7 +159,9 @@ texture = ExtResource( 1 )
 hframes = 4
 vframes = 6
 
-[node name="SwordHitbox" type="Area2D" parent="Sprite"]
+[node name="SwordHitbox" type="Area2D" parent="Sprite" groups=[
+"PlayerAttack",
+]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/SwordHitbox"]
 polygon = PoolVector2Array( 3.17066, 28.0823, 11.8569, 29.53, 19.875, 29.9754, 28.6726, 25.6323, 32.6817, 17.5029, 33.1271, 4.69619, 27.1136, -8.44457, 25.109, -7.55367, 17.2023, 1.80077, 22.2136, 5.36436, 23.9954, 17.0574, 15.1978, 25.0755 )
