@@ -1,8 +1,6 @@
 class_name Player
 extends KinematicBody2D
 
-signal player_hit(body)
-
 const RUN_SPEED := 200
 const JUMP_SPEED := -320
 const GRAVITY := 700
@@ -17,11 +15,11 @@ func attack() -> void:
 
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
-	if (body.name =="AttackHitbox" or body.name == "EnemyHitbox") and damageable:
+	if (body.is_in_group("EnemyAttack") or body.is_in_group("BossAttack")) and damageable:
 		Globals.health -= 1
 		damageable = false
 		$InvincibilityTimer.start()
-		emit_signal("player_hit",body)
+		$DamageAnimation.play("Damaged")
 		if Globals.health == 0:
 			$Sprite.hide()
 			$SceneTransition/AnimationPlayer.play("SweepIn")

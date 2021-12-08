@@ -86,8 +86,6 @@ extents = Vector2( 8.71383, 21.5167 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8.60138, 22.0584 )
 
-[sub_resource type="CapsuleShape2D" id=9]
-height = 63.9933
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8.62142, 20.5655 )
@@ -129,12 +127,12 @@ shape = SubResource( 6 )
 wait_time = 2.0
 one_shot = true
 
-[node name="AttackHitbox" type="Area2D" parent="."]
+[node name="AttackHitbox" type="Area2D" parent="." groups=[
+"BossAttack",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2( 0.834747, 39.3598 )
-rotation = 1.5708
-shape = SubResource( 9 )
+
 disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
