@@ -11,6 +11,7 @@ var player_health : int = Globals.health
 var player_body = Area2D
 var velocity := Vector2(0,0)
 var collider : Node2D
+var able_to_attack : bool = true
 
 
 func _ready() -> void:
@@ -20,16 +21,13 @@ func _ready() -> void:
 func _logic(delta : float) -> void:
 	if player_detector.is_colliding():
 		collider = player_detector.get_collider()
-		if collider.position.x < parent.position.x and collider.position.x > parent.position.x - 50:
-			state = States.ATTACKING
-			_enter_state(state)
-		elif collider.position.x > parent.position.x and collider.position.x < parent.position.x + 50:
-			state = States.ATTACKING
-			_enter_state(state)
-		elif collider.position.x < parent.position.x:
-			velocity.x = -100
+		if collider.position.x > parent.position.x and collider.position.x < parent.position.x + 15:
+			if able_to_attack:
+				state = States.ATTACKING
+				_enter_state(state)
+				get_node("../AttackCooldown").start()
+				able_to_attack = false
 		elif collider.position.x > parent.position.x:
-			print("forward velocity")
 			velocity.x = 100
 	else:
 		velocity = Vector2(0,velocity.y)
@@ -108,3 +106,7 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 	if anim_name == "Attack":
 		state = States.IDLE
 		_enter_state(state)
+
+
+func _on_AttackCooldown_timeout():
+	able_to_attack = true
