@@ -75,27 +75,29 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 6.47198, 3.10712 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=[
+"Enemy",
+]]
 script = ExtResource( 2 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -14.2187, 1.59099 )
+position = Vector2( -1.90245, 0.531526 )
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 6
 frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -14.5425, 23.4339 )
+position = Vector2( 0.654177, 22.4738 )
 shape = SubResource( 1 )
 
 [node name="EnemyHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitbox"]
-position = Vector2( -14.2938, 23.6826 )
+position = Vector2( 0.291046, 22.8435 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -115,14 +117,14 @@ one_shot = true
 position = Vector2( 0, 22.323 )
 rotation = 4.71239
 enabled = true
-cast_to = Vector2( 0, 80 )
+cast_to = Vector2( 0, -80 )
 
 [node name="AttackHitbox" type="Area2D" parent="." groups=[
 "EnemyAttack",
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2( 5.60425, 16.0459 )
+position = Vector2( -20.9847, 16.542 )
 shape = SubResource( 6 )
 disabled = true
 

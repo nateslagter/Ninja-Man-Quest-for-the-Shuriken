@@ -16,19 +16,20 @@ var able_to_attack : bool = true
 
 func _ready() -> void:
 	call_deferred("set_state",States.IDLE)
+	sprite.set_flip_h(true)
 
 
 func _logic(delta : float) -> void:
 	if player_detector.is_colliding():
 		collider = player_detector.get_collider()
-		if collider.position.x > parent.position.x and collider.position.x < parent.position.x + 15:
+		if collider.position.x < parent.position.x and collider.position.x > parent.position.x - 25:
 			if able_to_attack:
 				state = States.ATTACKING
 				_enter_state(state)
 				get_node("../AttackCooldown").start()
 				able_to_attack = false
-		elif collider.position.x > parent.position.x:
-			velocity.x = 100
+		elif collider.position.x < parent.position.x:
+			velocity.x = -80
 	else:
 		velocity = Vector2(0,velocity.y)
 	apply_gravity(delta)
@@ -96,7 +97,7 @@ func _on_Enemy_enemy_hit(body : Area2D) -> void:
 	_enter_state(state)
 
 
-func _on_KnockbackTimer_timeout():
+func _on_KnockbackTimer_timeout() -> void:
 	state = States.IDLE
 	_enter_state(state)
 	player_detector.enabled = true
@@ -108,5 +109,5 @@ func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 		_enter_state(state)
 
 
-func _on_AttackCooldown_timeout():
+func _on_AttackCooldown_timeout() -> void:
 	able_to_attack = true

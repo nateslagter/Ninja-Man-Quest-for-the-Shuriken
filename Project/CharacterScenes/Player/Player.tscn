@@ -136,7 +136,6 @@ extents = Vector2( 7.86566, 21.4016 )
 "Player",
 ]]
 position = Vector2( -100, 0 )
-collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="PlayerStateMachine" type="Node" parent="."]
