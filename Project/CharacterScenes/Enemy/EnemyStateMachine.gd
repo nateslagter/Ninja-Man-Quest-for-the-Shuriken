@@ -23,10 +23,13 @@ func _logic(delta : float) -> void:
 		if collider.position.x < parent.position.x and collider.position.x > parent.position.x - 50:
 			state = States.ATTACKING
 			_enter_state(state)
-			animation_player.play("Attack")
-		elif collider.position.x < parent.position.x - 50:
+		elif collider.position.x > parent.position.x and collider.position.x < parent.position.x + 50:
+			state = States.ATTACKING
+			_enter_state(state)
+		elif collider.position.x < parent.position.x:
 			velocity.x = -100
 		elif collider.position.x > parent.position.x:
+			print("forward velocity")
 			velocity.x = 100
 	else:
 		velocity = Vector2(0,velocity.y)
