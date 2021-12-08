@@ -26,7 +26,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.454902, 0.356863, 0.309804, 1 )
+color = Color( 0.227451, 0.0901961, 0.0235294, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,25 +34,26 @@ __meta__ = {
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -155.5
-margin_right = 155.5
+margin_left = -135.5
+margin_right = 135.5
 margin_bottom = 45.0
 custom_fonts/font = SubResource( 1 )
-text = "Test Success!"
+text = "CONGRATULATIONS!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Text" type="Label" parent="."]
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 1.0
-margin_top = -42.0
-margin_right = -147.0
-margin_bottom = 90.0
+margin_left = -71.5
+margin_top = -15.5
+margin_right = 71.5
+margin_bottom = 15.5
 custom_fonts/font = SubResource( 2 )
-text = "You have successfully finished the test quest!"
+text = "A WINNER IS YOU"
 __meta__ = {
 "_edit_use_anchors_": false
 }
