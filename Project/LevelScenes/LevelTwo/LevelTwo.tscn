@@ -891,3 +891,4 @@ position = Vector2( 2447.57, 5.72847 )
 
 [connection signal="area_entered" from="TeleportBox" to="." method="_on_TeleportBox_area_entered"]
 [connection signal="area_entered" from="Killbox" to="." method="_on_Killbox_area_entered"]
+[connection signal="boss_defeated" from="Boss" to="." method="_on_Boss_boss_defeated"]

@@ -25,7 +25,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.454902, 0.356863, 0.309804, 1 )
+color = Color( 0.227451, 0.0901961, 0.0235294, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,25 +33,26 @@ __meta__ = {
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -155.5
-margin_right = 155.5
+margin_left = -88.5
+margin_right = 88.5
 margin_bottom = 45.0
 custom_fonts/font = SubResource( 1 )
-text = "Test Failure"
+text = "GAME OVER"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Text" type="Label" parent="."]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 1.0
-margin_top = -42.0
-margin_right = -147.0
-margin_bottom = 90.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -42.5
+margin_top = -130.0
+margin_right = 42.5
+margin_bottom = -106.0
 custom_fonts/font = SubResource( 2 )
-text = "You have failed the test :("
+text = "TRY AGAIN"
 __meta__ = {
 "_edit_use_anchors_": false
 }

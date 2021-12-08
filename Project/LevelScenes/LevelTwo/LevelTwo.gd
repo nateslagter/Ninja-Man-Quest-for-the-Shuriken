@@ -21,3 +21,13 @@ func _on_Killbox_area_entered(_area):
 	yield($SceneTransition/AnimationPlayer, "animation_finished")
 	if get_tree().change_scene("res://UI/GameOverLose.tscn") != OK:
 			print ("An unexpected error occured while trying to switch to gameOverLose scene")
+
+
+func _on_Boss_boss_defeated():
+	$Player.hide()
+	$SceneTransition/AnimationPlayer.play("SweepIn")
+	yield($SceneTransition/AnimationPlayer, "animation_finished")
+	if get_tree().change_scene("res://UI/GameOverWin.tscn") != OK:
+			print ("An unexpected error occured while trying to switch to gameOverLose scene")
+
+	

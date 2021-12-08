@@ -1,4 +1,4 @@
-# Ninja Man: Quest for the Shuriken, Iteration 2
+# Ninja Man: Quest for the Shuriken, Iteration 3
 Second iteration of CS315 Final Project by Landon Hammond and Nate Slagter.
 
 ### How to Play: 
@@ -7,19 +7,11 @@ Second iteration of CS315 Final Project by Landon Hammond and Nate Slagter.
 * Jump: "spacebar"
 * Attack: "up" or "w"
 * Dodge: "down" or "s"
-* The win condition for iteration 2 is to make it to the end of the level, located at the top right.
+* The win condition is to defeat the boss at the end of the second level.
 ## Project Report
-### Team Reflection
 
-The second iteration of the final project was a much needed change of form for us.
-The things that worked well in iteration one still apply, such as strong and civil communication about game functionality and design choice, as well as the ability to use Git to our mutual advantage.
-It was clear that the way we handled time management in iteration one needed to change, and we feel as though we are trending in the correct direction. 
-We scaled back our expectations slightly and decided together what was truly most important to focus on this iteration and worked in a more timely manor to meet our better chosen goals.
-For example, we decided first and foremost that the leftover bugs from iteration one were the first things to tackle, and set a deadline for those bugfixes well before the deadline of the project. 
-This gave us time to fix the past mistakes and allow us ample time to focus on the new aspects of iteration two.
-This worked well for us as we did not have to spend the entire night before class cramming to get work done that should have been done long before, and we feel happier about the progress we made too.
-We ran into a few roadblocks along the way, such as the knockback system, and there are still some edges that need smoothening, but we look forward to building further upon the stronger foundation we have constructed throughout iteration two.
-While the style guide still remains a worry for us as we continue on in our project, we are referencing it more and more in hopes that we do not let any errors slip through.
+The third iteration of the final project provided us with a great chance to use the skills that we had developed and improved on over the last two iterations. Our team came up witha plan, set realistic goals for ourselves, and worked every day to ensure that these goals were met. While we were not able to accomplish a few of our loftier goals, we had set up our project in a way that the goals we didn't reach were not crucial to the project. One shortcoming that we had this iteration was the first week of the project; all team members had returned home for Thanksgiving, so progress was halted for a short while. One issue that our team could have improved on was making the best use of the resources available to us. When faced with a difficult problem in developing some of the elements of the AI, we chose to almost brute force our way through it rather then stopping and consulting other resources. We plan to learn from this by taking a step back when we are having issues with our code and think critically about the issue and how we can resolve it, rather then trying random, nonsensical solutions that may or may not work. 
+### Team Reflection
 
 
 ### Team-Evaluation
@@ -56,7 +48,7 @@ While the style guide still remains a worry for us as we continue on in our proj
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
 
 ***
-With the completion of the README and tagging for release, we believe we have fully completed everything needed to earn an A for iteration two of the final project.
+With the completion of the README and tagging for release, we believe we have fully completed everything needed to earn an A for iteration three of the final project.
 ## Third-Party Assets
 [Kaushan Script](https://fonts.google.com/specimen/Kaushan+Script?query=kaushan), licensed under [SIL Open Font License (OFL)](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
 
