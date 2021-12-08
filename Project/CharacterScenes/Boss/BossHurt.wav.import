@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BossHurt.wav-2094746280aff4b001399be902749723.sample"
+
+[deps]
+
+source_file="res://CharacterScenes/Boss/BossHurt.wav"
+dest_files=[ "res://.import/BossHurt.wav-2094746280aff4b001399be902749723.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
