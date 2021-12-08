@@ -87,7 +87,7 @@ extents = Vector2( 8.71383, 21.5167 )
 extents = Vector2( 8.60138, 22.0584 )
 
 [sub_resource type="CapsuleShape2D" id=9]
-height = 65.7751
+height = 63.9933
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8.62142, 20.5655 )
