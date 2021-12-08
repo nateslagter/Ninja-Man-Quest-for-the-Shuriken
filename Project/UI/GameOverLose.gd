@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	Jukebox.play_lose_chime()
+
 func _on_MainMenuButton_pressed() -> void:
 	$SceneTransition/AnimationPlayer.play("SweepIn")
 	yield($SceneTransition/AnimationPlayer, "animation_finished")

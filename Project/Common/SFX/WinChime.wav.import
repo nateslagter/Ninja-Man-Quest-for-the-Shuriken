@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WinChime.wav-530ee2467628e05d0d51b91cda18270f.sample"
+
+[deps]
+
+source_file="res://Common/SFX/WinChime.wav"
+dest_files=[ "res://.import/WinChime.wav-530ee2467628e05d0d51b91cda18270f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
