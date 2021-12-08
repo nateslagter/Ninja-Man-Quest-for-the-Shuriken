@@ -86,8 +86,6 @@ extents = Vector2( 8.71383, 21.5167 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8.60138, 22.0584 )
 
-[sub_resource type="CircleShape2D" id=7]
-radius = 19.2699
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8.62142, 20.5655 )
@@ -134,8 +132,7 @@ one_shot = true
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2( 15.7573, 44.7052 )
-shape = SubResource( 7 )
+
 disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

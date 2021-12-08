@@ -887,7 +887,7 @@ position = Vector2( 2163.46, 9.99762 )
 shape = SubResource( 17 )
 
 [node name="Boss" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2388.08, 9.72273 )
+position = Vector2( 2447.57, 5.72847 )
 
 [connection signal="area_entered" from="TeleportBox" to="." method="_on_TeleportBox_area_entered"]
 [connection signal="area_entered" from="Killbox" to="." method="_on_Killbox_area_entered"]
