@@ -1,5 +1,7 @@
 extends Node2D
 
+func _ready():
+	Jukebox.play_boss_music()
 
 
 func _on_TeleportBox_area_entered(_area):

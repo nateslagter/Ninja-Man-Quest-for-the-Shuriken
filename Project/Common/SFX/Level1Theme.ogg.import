@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Level1Theme.ogg-ba5b1cbfcc2e9513ce41d8fa0f38de6a.oggstr"
+
+[deps]
+
+source_file="res://Common/SFX/Level1Theme.ogg"
+dest_files=[ "res://.import/Level1Theme.ogg-ba5b1cbfcc2e9513ce41d8fa0f38de6a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

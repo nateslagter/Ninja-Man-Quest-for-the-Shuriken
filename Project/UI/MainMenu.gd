@@ -1,5 +1,9 @@
 extends Control
 
+func _ready():
+	Jukebox.play_main_music()
+
+
 func _on_PlayButton_pressed() -> void:
 	Globals.score = 0
 	Globals.health = 3

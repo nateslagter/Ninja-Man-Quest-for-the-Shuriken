@@ -39,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://Autoload/Globals.gd"
+Jukebox="*res://Autoload/Jukebox.tscn"
 
 [display]
 
