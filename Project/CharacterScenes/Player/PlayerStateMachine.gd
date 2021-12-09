@@ -2,6 +2,7 @@ extends "res://StateMachineInterface/State.gd"
 
 var attacking := false
 var jumping := false
+var able_to_dodge := true
 var slide_velocity = Vector2(-2500,0)
 var enemy_body : Area2D
 var knockback_direction : float
@@ -42,9 +43,12 @@ func get_input(_delta : float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		parent.attack()
 	if Input.is_action_just_pressed("dodge_backwards"):
-		if parent.is_on_floor():
-			state = States.DODGING
-			_enter_state(state)
+		if able_to_dodge == true:
+			if parent.is_on_floor():
+				able_to_dodge = false
+				get_node("../DodgeTimer").start()
+				state = States.DODGING
+				_enter_state(state)
 	_switch_direction()
 
 
@@ -152,3 +156,7 @@ func _create_knockback(body) -> void:
 func _on_KnockbackTimer_timeout() -> void:
 	state = States.IDLE
 	_enter_state(state)
+
+
+func _on_DodgeTimer_timeout():
+	able_to_dodge = true
