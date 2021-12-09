@@ -1165,19 +1165,49 @@ position = Vector2( 122.419, 0 )
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 226.458, 203.189 )
+position = Vector2( 4222.33, 490.861 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 1 )]
 position = Vector2( 3530.81, 239.88 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 2480.26, 331.414 )
+position = Vector2( 2860.35, 326.369 )
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 2180, 14 )
+position = Vector2( 2256.45, 139.535 )
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 1 )]
-position = Vector2( 1410, 202 )
+position = Vector2( 1329, 203 )
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 4647.28, 553.168 )
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 4628.48, 105.239 )
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 4277.25, 234.555 )
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 3228.85, 42.8925 )
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 2467.1, 555.805 )
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 2756.74, 329.295 )
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 3258.92, 44.1357 )
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 3511.93, 551.788 )
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 4651.11, 268.703 )
+
+[node name="Enemy15" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 4809.72, -115.302 )
 
 [node name="Killbox" type="Area2D" parent="."]
 position = Vector2( 0, -75 )
