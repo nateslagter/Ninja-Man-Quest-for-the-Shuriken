@@ -3,9 +3,9 @@ extends "res://StateMachineInterface/State.gd"
 onready var animation_player = get_node("../AnimationPlayer")
 onready var boss_boundary_detector = get_node("../BossBoundaryDetector")
 onready var sprite = get_node("../Sprite")
-var attack_on_cooldown := false
 
-var velocity = Vector2(100,0)
+var attack_on_cooldown := false
+var velocity := Vector2(100,0)
 
 
 func _ready() -> void:
@@ -32,7 +32,7 @@ func _logic(delta : float) -> void:
 		parent.move_and_slide(velocity,Vector2.UP)
 	_switch_direction()
 
-	
+
 func _apply_gravity(delta : float) -> void:
 	if !parent.is_on_floor():
 		velocity.y += 700 * delta
@@ -43,8 +43,8 @@ func _switch_direction() -> void:
 		sprite.set_flip_h(true)
 	if velocity.x > 0:
 		sprite.set_flip_h(false)
-	
-	
+
+
 func _enter_state(_new_state) -> void:
 	match state:
 		States.IDLE:
@@ -53,7 +53,7 @@ func _enter_state(_new_state) -> void:
 			animation_player.play("Attack")
 		States.RUNNING:
 			animation_player.play("Walk")
-			
+
 
 func _on_WaitTimer_timeout() -> void:
 	state = States.RUNNING

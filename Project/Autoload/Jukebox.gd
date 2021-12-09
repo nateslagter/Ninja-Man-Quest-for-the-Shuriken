@@ -5,6 +5,7 @@ var boss_music := load ("res://Common/SFX/Level2Theme.ogg")
 var win_chime := load("res://Common/SFX/WinChime.wav")
 var lose_chime := load("res://Common/SFX/LoseChime.wav")
 
+
 func play_main_music():
 	stream = main_music
 	play()

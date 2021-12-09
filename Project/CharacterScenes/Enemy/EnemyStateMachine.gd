@@ -9,7 +9,7 @@ var waiting : bool = true
 var knockback_direction : float
 var player_health : int = Globals.health
 var player_body = Area2D
-var velocity := Vector2(0,0)
+var velocity = Vector2(0,0)
 var collider : Node2D
 var able_to_attack : bool = true
 

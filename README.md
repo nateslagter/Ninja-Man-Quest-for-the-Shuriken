@@ -1,18 +1,20 @@
 # Ninja Man: Quest for the Shuriken, Iteration 3
-Second iteration of CS315 Final Project by Landon Hammond and Nate Slagter.
+Third iteration of CS315 Final Project by Landon Hammond and Nate Slagter.
 
-### How to Play: 
+### How to Play:
+A rival clan leader has stolen your prized shuriken. Get it back! 
 * Move right: "right" or "d"  
 * Move left: "left" or "a"  
 * Jump: "spacebar"
 * Attack: "up" or "w"
-* Dodge: "down" or "s"
+* Dodge: "down" or "s" (Functions on a 1 second cooldown)
 * The win condition is to defeat the boss at the end of the second level.
+* You get points based on defeated enemies, and a high score is an optional task.
+
 ## Project Report
 
-The third iteration of the final project provided us with a great chance to use the skills that we had developed and improved on over the last two iterations. Our team came up witha plan, set realistic goals for ourselves, and worked every day to ensure that these goals were met. While we were not able to accomplish a few of our loftier goals, we had set up our project in a way that the goals we didn't reach were not crucial to the project. One shortcoming that we had this iteration was the first week of the project; all team members had returned home for Thanksgiving, so progress was halted for a short while. One issue that our team could have improved on was making the best use of the resources available to us. When faced with a difficult problem in developing some of the elements of the AI, we chose to almost brute force our way through it rather then stopping and consulting other resources. We plan to learn from this by taking a step back when we are having issues with our code and think critically about the issue and how we can resolve it, rather then trying random, nonsensical solutions that may or may not work. 
 ### Team Reflection
-
+The third iteration of the final project provided us with a great chance to use the skills that we had developed and improved on over the last two iterations. Our team came up witha plan, set realistic goals for ourselves, and worked every day to ensure that these goals were met. While we were not able to accomplish a few of our loftier goals, we had set up our project in a way that the goals we didn't reach were not crucial to the project. One shortcoming that we had this iteration was the first week of the project; all team members had returned home for Thanksgiving, so progress was halted for a short while. One issue that our team could have improved on was making the best use of the resources available to us. When faced with a difficult problem in developing some of the elements of the AI, we chose to almost brute force our way through it rather then stopping and consulting other resources. We plan to learn from this by taking a step back when we are having issues with our code and think critically about the issue and how we can resolve it, rather then trying random, nonsensical solutions that may or may not work. 
 
 ### Team-Evaluation
 - [X] D-1: The repository link is submitted to Canvas before the project deadline.
@@ -40,7 +42,7 @@ The third iteration of the final project provided us with a great chance to use 
 - [ ] ⭐ Support two of the following: touch input, mouse/keyboard input, and gamepad input
 - [ ] ⭐ Allow the user to control the volume of music and sound effects independently.
 - [ ] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
-- [ ] ⭐ Use particle effects
+- [X] ⭐ Use particle effects
 - [ ] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>
 - [ ] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
 - [X] ⭐ Include an AI-controlled character

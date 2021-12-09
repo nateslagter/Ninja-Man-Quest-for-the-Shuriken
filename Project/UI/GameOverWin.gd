@@ -1,6 +1,6 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
 	Jukebox.play_win_chime()
 	$Score.text = "Score: %d" % Globals.score
 

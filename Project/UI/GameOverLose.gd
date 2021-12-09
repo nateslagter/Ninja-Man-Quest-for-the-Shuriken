@@ -1,6 +1,6 @@
 extends Control
 
-func _ready():
+func _ready() -> void:
 	Jukebox.play_lose_chime()
 
 func _on_MainMenuButton_pressed() -> void:
