@@ -1,11 +1,11 @@
 extends "res://StateMachineInterface/State.gd"
 
+var is_on_cooldown : bool = false
+var velocity := Vector2(100,0)
+
 onready var animation_player = get_node("../AnimationPlayer")
 onready var boss_boundary_detector = get_node("../BossBoundaryDetector")
 onready var sprite = get_node("../Sprite")
-
-var attack_on_cooldown := false
-var velocity := Vector2(100,0)
 
 
 func _ready() -> void:
@@ -22,10 +22,10 @@ func _logic(delta : float) -> void:
 			state = States.IDLE
 			_enter_state(state)
 		elif boss_boundary_detector.get_collider().is_in_group("Player"):
-			if !attack_on_cooldown:
+			if !is_on_cooldown:
 				state = States.ATTACKING
 				animation_player.play("Attack")
-				attack_on_cooldown = true
+				is_on_cooldown = true
 				get_node("../AttackCooldownTimer").start()
 	_apply_gravity(delta)
 	if state == States.RUNNING:

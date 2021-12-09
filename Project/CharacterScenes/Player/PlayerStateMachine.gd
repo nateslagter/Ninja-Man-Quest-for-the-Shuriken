@@ -1,16 +1,16 @@
 extends "res://StateMachineInterface/State.gd"
 
+var is_attacking : bool = false
+var is_jumping : bool = false
+var is_able_to_dodge : bool = true
+var slide_velocity = Vector2(-2500,0)
+var enemy_body : Area2D
+var knockback_direction : float
+
 onready var animation_player = get_node("../AnimationPlayer")
 onready var damage_player = get_node("../DamageAnimation")
 onready var sprite = get_node("../Sprite")
 onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
-
-var attacking := false
-var jumping := false
-var able_to_dodge := true
-var slide_velocity = Vector2(-2500,0)
-var enemy_body : Area2D
-var knockback_direction : float
 
 
 func _ready() -> void:
@@ -38,15 +38,15 @@ func get_input(_delta : float) -> void:
 	if Input.is_action_pressed("move_right"):
 		parent.velocity.x += parent.RUN_SPEED
 	if Input.is_action_just_pressed("jump"):
-		if jumping == false:
+		if is_jumping == false:
 			parent.velocity.y += parent.JUMP_SPEED
 	if Input.is_action_just_pressed("attack"):
 		parent.attack()
-		attacking = true
+		is_attacking = true
 	if Input.is_action_just_pressed("dodge_backwards"):
-		if able_to_dodge == true:
+		if is_able_to_dodge == true:
 			if parent.is_on_floor():
-				able_to_dodge = false
+				is_able_to_dodge = false
 				get_node("../DodgeTimer").start()
 				state = States.DODGING
 				_enter_state(state)
@@ -68,8 +68,8 @@ func _switch_direction() -> void:
 func _transition(delta : float):
 	match state:
 		States.IDLE:
-			if jumping == true:
-				jumping = false
+			if is_jumping == true:
+				is_jumping = false
 			if !parent.is_on_floor():
 				if parent.velocity.y < 0:
 					return States.JUMPING
@@ -108,12 +108,12 @@ func _transition(delta : float):
 
 
 func _enter_state(state : int) -> void:
-	if !attacking:
+	if !is_attacking:
 		match state:
 			States.IDLE:
 				animation_player.play("Idle")
 			States.JUMPING:
-				jumping = true
+				is_jumping = true
 				animation_player.play("Jump")
 			States.RUNNING:
 				animation_player.play("Walk")
@@ -132,7 +132,7 @@ func _enter_state(state : int) -> void:
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 	if anim_name == "Attack":
-		attacking = false
+		is_attacking = false
 		if parent.velocity.x != 0:
 			state = States.RUNNING
 			_enter_state(state)
@@ -162,4 +162,4 @@ func _on_KnockbackTimer_timeout() -> void:
 
 
 func _on_DodgeTimer_timeout():
-	able_to_dodge = true
+	is_able_to_dodge = true

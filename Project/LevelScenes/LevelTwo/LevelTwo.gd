@@ -31,5 +31,3 @@ func _on_Boss_boss_defeated() -> void:
 	yield($SceneTransition/AnimationPlayer, "animation_finished")
 	if get_tree().change_scene("res://UI/GameOverWin.tscn") != OK:
 			print ("An unexpected error occured while trying to switch to gameOverLose scene")
-
-	

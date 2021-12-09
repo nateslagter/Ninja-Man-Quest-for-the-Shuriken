@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-signal boss_defeated()
+signal boss_defeated
 
 var health : int = 6
 

@@ -1,10 +1,5 @@
 extends "res://StateMachineInterface/State.gd"
 
-onready var animation_player = get_node("../AnimationPlayer")
-onready var sprite = get_node("../Sprite")
-onready var knockback_timer = get_node("../KnockbackTimer")
-onready var player_detector = get_node("../PlayerDetector")
-
 var waiting : bool = true
 var knockback_direction : float
 var player_health : int = Globals.health
@@ -12,6 +7,11 @@ var player_body = Area2D
 var velocity = Vector2(0,0)
 var collider : Node2D
 var able_to_attack : bool = true
+
+onready var animation_player = get_node("../AnimationPlayer")
+onready var sprite = get_node("../Sprite")
+onready var knockback_timer = get_node("../KnockbackTimer")
+onready var player_detector = get_node("../PlayerDetector")
 
 
 func _ready() -> void:
@@ -61,6 +61,7 @@ func _transition(_delta : float):
 func _enter_state(state : int) -> void:
 	match state:
 		States.IDLE:
+			get_node("../AttackHitbox/CollisionShape2D").disabled = true
 			velocity.x = 0
 			animation_player.play("Idle")
 		States.RUNNING:
