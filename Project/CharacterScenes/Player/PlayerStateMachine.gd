@@ -42,6 +42,7 @@ func get_input(_delta : float) -> void:
 			parent.velocity.y += parent.JUMP_SPEED
 	if Input.is_action_just_pressed("attack"):
 		parent.attack()
+		attacking = true
 	if Input.is_action_just_pressed("dodge_backwards"):
 		if able_to_dodge == true:
 			if parent.is_on_floor():
@@ -107,29 +108,31 @@ func _transition(delta : float):
 
 
 func _enter_state(state : int) -> void:
-	match state:
-		States.IDLE:
-			animation_player.play("Idle")
-		States.JUMPING:
-			jumping = true
-			animation_player.play("Jump")
-		States.RUNNING:
-			animation_player.play("Walk")
-		States.FALLING:
-			animation_player.play("Fall")
-		States.DODGING:
-			animation_player.play("Dodge")
-		States.KNOCKBACK:
-			damage_player.play("Damaged")
-			if parent.global_position.x <= enemy_body.global_position.x:
-				knockback_direction = -2.5
-			elif parent.global_position.x > enemy_body.global_position.x:
-				knockback_direction =  2.5
-			parent.velocity.y += parent.JUMP_SPEED / 2
+	if !attacking:
+		match state:
+			States.IDLE:
+				animation_player.play("Idle")
+			States.JUMPING:
+				jumping = true
+				animation_player.play("Jump")
+			States.RUNNING:
+				animation_player.play("Walk")
+			States.FALLING:
+				animation_player.play("Fall")
+			States.DODGING:
+				animation_player.play("Dodge")
+			States.KNOCKBACK:
+				damage_player.play("Damaged")
+				if parent.global_position.x <= enemy_body.global_position.x:
+					knockback_direction = -2.5
+				elif parent.global_position.x > enemy_body.global_position.x:
+					knockback_direction =  2.5
+				parent.velocity.y += parent.JUMP_SPEED / 2
 
 
 func _on_AnimationPlayer_animation_finished(anim_name : String) -> void:
 	if anim_name == "Attack":
+		attacking = false
 		if parent.velocity.x != 0:
 			state = States.RUNNING
 			_enter_state(state)
