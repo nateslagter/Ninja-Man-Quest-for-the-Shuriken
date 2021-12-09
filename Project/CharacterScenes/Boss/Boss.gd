@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal boss_defeated()
 
-var health : int = 3
+var health : int = 6
 
 
 func _on_Hitbox_area_entered(area : Area2D) -> void:
