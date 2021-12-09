@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	Jukebox.play_win_chime()
+	$Score.text = "Score: %d" % Globals.score
 
 
 func _on_MainMenuButton_pressed() -> void:

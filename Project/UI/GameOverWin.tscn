@@ -1,14 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Common/font/KaushanScript-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/GameOverWin.gd" type="Script" id=2]
 [ext_resource path="res://UI/SceneTransition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CharacterScenes/Player/player.png" type="Texture" id=4]
+[ext_resource path="res://CharacterScenes/Boss/boss.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
+outline_size = 1
+outline_color = Color( 1, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -26,7 +33,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.227451, 0.0901961, 0.0235294, 1 )
+color = Color( 0.164706, 0.129412, 0.305882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -35,8 +42,9 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -135.5
+margin_top = 6.00596
 margin_right = 135.5
-margin_bottom = 45.0
+margin_bottom = 51.006
 custom_fonts/font = SubResource( 1 )
 text = "CONGRATULATIONS!"
 __meta__ = {
@@ -48,12 +56,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -71.5
-margin_top = -15.5
-margin_right = 71.5
-margin_bottom = 15.5
+margin_left = -99.5
+margin_top = -44.2392
+margin_right = 99.5
+margin_bottom = -13.2392
 custom_fonts/font = SubResource( 2 )
-text = "A WINNER IS YOU"
+text = "You got your shurkien back!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -46.3954
+margin_top = -9.28716
+margin_right = 152.605
+margin_bottom = 21.7128
+custom_fonts/font = SubResource( 2 )
+text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -74,5 +97,21 @@ __meta__ = {
 }
 
 [node name="SceneTransition" parent="." instance=ExtResource( 3 )]
+
+[node name="PlayerSprite" type="Sprite" parent="."]
+position = Vector2( 52.066, 96.3522 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+hframes = 4
+vframes = 6
+frame = 8
+
+[node name="BossSprite" type="Sprite" parent="."]
+position = Vector2( 273.03, 95.9645 )
+scale = Vector2( -2, 2 )
+texture = ExtResource( 5 )
+hframes = 4
+vframes = 8
+frame = 14
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
