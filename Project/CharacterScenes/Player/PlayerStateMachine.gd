@@ -1,16 +1,16 @@
 extends "res://StateMachineInterface/State.gd"
 
+onready var animation_player = get_node("../AnimationPlayer")
+onready var damage_player = get_node("../DamageAnimation")
+onready var sprite = get_node("../Sprite")
+onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
+
 var attacking := false
 var jumping := false
 var able_to_dodge := true
 var slide_velocity = Vector2(-2500,0)
 var enemy_body : Area2D
 var knockback_direction : float
-
-onready var animation_player = get_node("../AnimationPlayer")
-onready var damage_player = get_node("../DamageAnimation")
-onready var sprite = get_node("../Sprite")
-onready var sword_hitbox = get_node("../Sprite/SwordHitbox")
 
 
 func _ready() -> void:
