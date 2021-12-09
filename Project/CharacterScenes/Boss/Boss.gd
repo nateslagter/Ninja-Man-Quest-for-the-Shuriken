@@ -10,5 +10,6 @@ func _on_Hitbox_area_entered(area : Area2D) -> void:
 		health -= 1
 		$DamageAnimation.play("Damaged")
 		if health == 0:
+			Globals.score += 500
 			emit_signal("boss_defeated")
 			queue_free()

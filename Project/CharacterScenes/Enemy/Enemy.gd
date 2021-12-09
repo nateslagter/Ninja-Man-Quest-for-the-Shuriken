@@ -13,6 +13,7 @@ func _on_Area2D_area_entered(area : Area2D) -> void:
 		health -= 1
 		emit_signal("enemy_hit",area)
 		if health == 0:
+			Globals.score += 100
 			queue_free()
 
 
