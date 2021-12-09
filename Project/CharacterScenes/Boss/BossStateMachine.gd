@@ -66,4 +66,4 @@ func _on_AnimationPlayer_animation_finished(_anim_name : String) -> void:
 
 
 func _on_AttackCooldownTimer_timeout():
-	attack_on_cooldown = false
+	is_on_cooldown = false

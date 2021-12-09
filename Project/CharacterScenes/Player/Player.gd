@@ -1,6 +1,8 @@
 class_name Player
 extends KinematicBody2D
 
+signal player_hit(body)
+
 const RUN_SPEED := 200
 const JUMP_SPEED := -320
 const GRAVITY := 700
@@ -15,6 +17,7 @@ func attack() -> void:
 
 func _on_Area2D_body_entered(body : Node2D) -> void:
 	if (body.is_in_group("EnemyAttack") or body.is_in_group("BossAttack")) and damageable:
+		emit_signal("player_hit",body)
 		Globals.health -= 1
 		damageable = false
 		$InvincibilityTimer.start()
