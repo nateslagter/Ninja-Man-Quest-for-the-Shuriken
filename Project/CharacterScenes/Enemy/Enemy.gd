@@ -6,7 +6,6 @@ signal enemy_hit(area)
 var health := 2
 
 
-
 func _on_Area2D_area_entered(area : Area2D) -> void:
 	if area.name == "SwordHitbox":
 		health -= 1

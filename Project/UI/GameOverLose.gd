@@ -1,5 +1,6 @@
 extends Control
 
+
 func _ready() -> void:
 	Jukebox.play_lose_chime()
 
