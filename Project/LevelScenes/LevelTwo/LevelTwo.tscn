@@ -812,6 +812,8 @@ extents = Vector2( 10, 42.198 )
 script = ExtResource( 6 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, -40 )
+transform = Transform2D( 1, 0, 0, 1, 0, -40 )
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, 50 )
