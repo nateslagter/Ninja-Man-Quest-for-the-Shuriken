@@ -1,5 +1,4 @@
-# Ninja Man: Quest for the Shuriken, Iteration 3
-Third iteration of CS315 Final Project by Landon Hammond and Nate Slagter.
+# Ninja Man: Quest for the Shuriken
 
 ### How to Play:
 A rival clan leader has stolen your prized shuriken. Get it back! 
